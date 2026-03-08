@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remont kvartir v Permi</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#0d0d2b;color:#fff}
+a{text-decoration:none;color:inherit}
+.hero{text-align:center;padding:60px 20px 40px}
+.hero h1{font-size:2.5em;margin-bottom:10px}
+.hero h1 .accent{color:#ff4d6d}
+.hero p{font-size:1.1em;color:#ccc;max-width:500px;margin:15px auto}
+.buttons{display:flex;gap:15px;justify-content:center;margin:30px 0}
+.btn-primary{background:#ff4d6d;color:#fff;padding:14px 30px;border-radius:30px;font-size:1em;border:none;cursor:pointer}
+.btn-secondary{background:transparent;color:#fff;padding:14px 30px;border-radius:30px;font-size:1em;border:2px solid #fff;cursor:pointer}
+.stats{display:flex;justify-content:center;gap:40px;margin:30px 0;flex-wrap:wrap}
+.stat{text-align:center}
+.stat .num{font-size:2.5em;color:#ff4d6d;font-weight:bold}
+.stat .label{color:#aaa;font-size:0.9em}
+section{padding:50px 20px;max-width:1000px;margin:0 auto}
+section h2{text-align:center;font-size:2em;margin-bottom:10px}
+section .subtitle{text-align:center;color:#aaa;margin-bottom:40px}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+.feature{background:#1a1a3e;padding:25px;border-radius:15px;text-align:center}
+.feature .icon{font-size:2em;margin-bottom:10px}
+.feature h4{margin-bottom:8px}
+.feature p{color:#aaa;font-size:0.9em}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.service{background:#1a1a3e;padding:30px;border-radius:15px}
+.service h3{margin-bottom:10px}
+.service p{color:#aaa;margin-bottom:15px}
+.service .price{color:#ff4d6d;font-weight:bold;font-size:1.1em}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px}
+.step{text-align:center;background:#1a1a3e;padding:25px;border-radius:15px}
+.step .num{font-size:2em;color:#ff4d6d;font-weight:bold}
+.step h4{margin:10px 0 5px}
+.step p{color:#aaa;font-size:0.9em}
+.cta{text-align:center;padding:50px 20px;background:#1a1a3e;border-radius:15px;margin:30px auto;max-width:1000px}
+.cta h2{margin-bottom:10px}
+.cta p{color:#aaa;margin-bottom:20px}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.review{background:#1a1a3e;padding:25px;border-radius:15px}
+.review .avatar{width:40px;height:40px;background:#ff4d6d;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;margin-right:10px}
+.review .header{display:flex;align-items:center;margin-bottom:10px}
+.review .stars{color:#ffd700}
+.review .name{font-weight:bold}
+.review p{color:#aaa}
+.contact-section{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1000px;margin:0 auto;padding:50px 20px}
+.contact-form input,.contact-form textarea{width:100%;padding:12px;margin-bottom:12px;border-radius:8px;border:1px solid #333;background:#1a1a3e;color:#fff;font-size:1em}
+.contact-form textarea{height:100px;resize:vertical}
+.contact-form button{background:#ff4d6d;color:#fff;padding:14px 30px;border:none;border-radius:30px;cursor:pointer;font-size:1em;width:100%}
+.contact-info .item{display:flex;gap:15px;margin-bottom:20px}
+.contact-info .item .icon{font-size:1.5em}
+.contact-info .item .label{font-weight:bold}
+.contact-info .item .value{color:#aaa}
+footer{background:#0a0a20;padding:40px 20px;margin-top:40px}
+.footer-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.footer-inner h4{margin-bottom:10px}
+.footer-inner p,.footer-inner a{color:#aaa;font-size:0.9em}
+.copyright{text-align:center;color:#666;padding:20px;font-size:0.85em}
+@media(max-width:768px){.contact-section{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1><span>Ремонт квартир</span><br>в <span class="accent">Перми</span></h1>
+<p>Превращаем ваши идеи в реальность. Комплексный ремонт под ключ с гарантией качества 3 года.</p>
+<div class="buttons">
+<a href="#contact" class="btn-primary">Рассчитать стоимость</a>
+<a href="tel:+79991234567" class="btn-secondary">Позвонить</a>
+</div>
+<div class="stats">
+<div class="stat"><div class="num">500+</div><div class="label">Выполненных проектов</div></div>
+<div class="stat"><div class="num">12</div><div class="label">Лет опыта</div></div>
+<div class="stat"><div class="num">3</div><div class="label">Года гарантии</div></div>
+</div>
+</div>
+
+<section>
+<h2>Почему выбирают нас</h2>
+<p class="subtitle">Мы гарантируем качество на каждом этапе</p>
+<div class="features">
+<div class="feature"><div class="icon">🛠</div><h4>Под ключ</h4><p>Полный цикл работ от дизайна до сдачи</p></div>
+<div class="feature"><div class="icon">💰</div><h4>Фикс. цена</h4><p>Смета не меняется после заключения договора</p></div>
+<div class="feature"><div class="icon">📅</div><h4>Сроки</h4><p>Соблюдаем сроки или компенсируем</p></div>
+<div class="feature"><div class="icon">✅</div><h4>Гарантия 3 года</h4><p>Полная гарантия на все виды работ</p></div>
+<div class="feature"><div class="icon">🚀</div><h4>Материалы</h4><p>Работаем с проверенными поставщиками</p></div>
+<div class="feature"><div class="icon">📱</div><h4>24/7 связь</h4><p>Всегда на связи с вами</p></div>
+</div>
+</section>
+
+<section>
+<h2>Наши услуги</h2>
+<p class="subtitle">Все виды ремонтных работ под ключ</p>
+<div class="services">
+<div class="service"><h3>Косметический</h3><p>Обновление отделки без капитальных изменений</p><div class="price">от 3 500 р/м²</div></div>
+<div class="service"><h3>Капитальный</h3><p>Полная перепланировка и замена коммуникаций</p><div class="price">от 6 000 р/м²</div></div>
+<div class="service"><h3>Дизайнерский</h3><p>Эксклюзивный дизайн и премиум материалы</p><div class="price">от 10 000 р/м²</div></div>
+</div>
+</section>
+
+<section>
+<h2>Этапы работы</h2>
+<div class="steps">
+<div class="step"><div class="num">1</div><h4>Заявка</h4><p>Оставьте заявку и мы свяжемся</p></div>
+<div class="step"><div class="num">2</div><h4>Замер</h4><p>Бесплатный выезд и смета</p></div>
+<div class="step"><div class="num">3</div><h4>Ремонт</h4><p>Выполняем работы по договору</p></div>
+<div class="step"><div class="num">4</div><h4>Сдача</h4><p>Приёмка и гарантия 3 года</p></div>
+</div>
+</section>
+
+<div class="cta">
+<h2>Готовы начать ремонт?</h2>
+<p>Оставьте заявку и получите бесплатную консультацию</p>
+<a href="#contact" class="btn-primary">Оставить заявку</a>
+</div>
+
+<section>
+<h2>Отзывы клиентов</h2>
+<div class="reviews">
+<div class="review"><div class="header"><div class="avatar">А</div><div><div class="name">Анна П.</div><div class="stars">★★★★★</div></div></div><p>Отличная команда! Сделали ремонт в срок, качество на высоте. Рекомендую!</p></div>
+<div class="review"><div class="header"><div class="avatar">Д</div><div><div class="name">Дмитрий К.</div><div class="stars">★★★★★</div></div></div><p>Профессиональный подход. Цена не изменилась. Очень доволен!</p></div>
+<div class="review"><div class="header"><div class="avatar">Е</div><div><div class="name">Елена С.</div><div class="stars">★★★★★</div></div></div><p>Капитальный ремонт двушки. Всё идеально, спасибо!</p></div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Связаться с нами</h2>
+<div class="contact-section">
+<div class="contact-form">
+<input type="text" placeholder="Ваше имя" required>
+<input type="tel" placeholder="Телефон" required>
+<input type="email" placeholder="Email">
+<textarea placeholder="Сообщение"></textarea>
+<button type="submit">Отправить</button>
+</div>
+<div class="contact-info">
+<div class="item"><div class="icon">📍</div><div><div class="label">Адрес</div><div class="value">г. Пермь, ул. Монастырская 123</div></div></div>
+<div class="item"><div class="icon">📞</div><div><div class="label">Телефон</div><div class="value">+7 (999) 123-45-67</div></div></div>
+<div class="item"><div class="icon">🕒</div><div><div class="label">Режим работы</div><div class="value">Пн-Пт: 9:00-20:00, Сб: 10:00-18:00</div></div></div>
+<div class="item"><div class="icon">💬</div><div><div class="label">Мессенджеры</div><div class="value"><a href="https://t.me/VKProtarget1">Telegram</a> | <a href="https://vk.ru/club236479775">VK</a></div></div></div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="footer-inner">
+<div><h4>Ремонт квартир в Перми</h4><p>Комплексный ремонт под ключ с гарантией</p></div>
+<div><h4>Контакты</h4><p>ул. Монастырская 123, Пермь</p><p>+7 (999) 123-45-67</p></div>
+<div><h4>Соцсети</h4><p><a href="https://t.me/VKProtarget1">Telegram</a></p><p><a href="https://vk.ru/club236479775">VK</a></p></div>
+</div>
+<div class="copyright">© 2025 Ремонт квартир в Перми</div>
+</footer>
+</body>
+</html>
