@@ -3,155 +3,325 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Remont kvartir v Permi</title>
+<title>Ремонт квартир в Перми | Качественно и в срок</title>
+<meta name="description" content="Профессиональный ремонт квартир в Перми. Косметический, капитальный ремонт, отделка под ключ. Бесплатный замер и смета.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#0d0d2b;color:#fff}
+:root{--primary:#2563eb;--primary-dark:#1d4ed8;--accent:#f59e0b;--dark:#1e293b;--gray:#64748b;--light:#f8fafc;--white:#fff}
+body{font-family:'Segoe UI',Arial,sans-serif;color:#334155;line-height:1.6}
 a{text-decoration:none;color:inherit}
-.hero{text-align:center;padding:60px 20px 40px}
-.hero h1{font-size:2.5em;margin-bottom:10px}
-.hero h1 .accent{color:#ff4d6d}
-.hero p{font-size:1.1em;color:#ccc;max-width:500px;margin:15px auto}
-.buttons{display:flex;gap:15px;justify-content:center;margin:30px 0}
-.btn-primary{background:#ff4d6d;color:#fff;padding:14px 30px;border-radius:30px;font-size:1em;border:none;cursor:pointer}
-.btn-secondary{background:transparent;color:#fff;padding:14px 30px;border-radius:30px;font-size:1em;border:2px solid #fff;cursor:pointer}
-.stats{display:flex;justify-content:center;gap:40px;margin:30px 0;flex-wrap:wrap}
+
+/* HEADER */
+.header{background:var(--dark);padding:15px 0;position:fixed;width:100%;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.header .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.5em;font-weight:700;color:var(--white)}
+.logo span{color:var(--accent)}
+.nav{display:flex;gap:25px;align-items:center}
+.nav a{color:#cbd5e1;font-size:.95em;transition:.3s}
+.nav a:hover{color:var(--accent)}
+.phone-header{color:var(--accent);font-weight:700;font-size:1.1em}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0f172a 100%);padding:140px 20px 80px;text-align:center;color:var(--white);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></svg>');opacity:.5}
+.hero h1{font-size:2.8em;margin-bottom:15px;position:relative}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:1.2em;color:#94a3b8;max-width:600px;margin:0 auto 30px}
+.hero-btns{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;position:relative}
+.btn{padding:15px 35px;border-radius:8px;font-size:1.05em;font-weight:600;cursor:pointer;border:none;transition:.3s}
+.btn-primary{background:var(--primary);color:var(--white)}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 5px 20px rgba(37,99,235,.4)}
+.btn-accent{background:var(--accent);color:var(--dark)}
+.btn-accent:hover{background:#d97706;transform:translateY(-2px)}
+
+/* CONTAINER */
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:70px 20px}
+.section-title{text-align:center;font-size:2em;margin-bottom:10px;color:var(--dark)}
+.section-subtitle{text-align:center;color:var(--gray);margin-bottom:50px;font-size:1.05em}
+
+/* STATS */
+.stats{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;margin-top:40px;position:relative}
 .stat{text-align:center}
-.stat .num{font-size:2.5em;color:#ff4d6d;font-weight:bold}
-.stat .label{color:#aaa;font-size:0.9em}
-section{padding:50px 20px;max-width:1000px;margin:0 auto}
-section h2{text-align:center;font-size:2em;margin-bottom:10px}
-section .subtitle{text-align:center;color:#aaa;margin-bottom:40px}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-.feature{background:#1a1a3e;padding:25px;border-radius:15px;text-align:center}
-.feature .icon{font-size:2em;margin-bottom:10px}
-.feature h4{margin-bottom:8px}
-.feature p{color:#aaa;font-size:0.9em}
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
-.service{background:#1a1a3e;padding:30px;border-radius:15px}
-.service h3{margin-bottom:10px}
-.service p{color:#aaa;margin-bottom:15px}
-.service .price{color:#ff4d6d;font-weight:bold;font-size:1.1em}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px}
-.step{text-align:center;background:#1a1a3e;padding:25px;border-radius:15px}
-.step .num{font-size:2em;color:#ff4d6d;font-weight:bold}
-.step h4{margin:10px 0 5px}
-.step p{color:#aaa;font-size:0.9em}
-.cta{text-align:center;padding:50px 20px;background:#1a1a3e;border-radius:15px;margin:30px auto;max-width:1000px}
-.cta h2{margin-bottom:10px}
-.cta p{color:#aaa;margin-bottom:20px}
-.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
-.review{background:#1a1a3e;padding:25px;border-radius:15px}
-.review .avatar{width:40px;height:40px;background:#ff4d6d;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;margin-right:10px}
-.review .header{display:flex;align-items:center;margin-bottom:10px}
-.review .stars{color:#ffd700}
-.review .name{font-weight:bold}
-.review p{color:#aaa}
-.contact-section{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1000px;margin:0 auto;padding:50px 20px}
-.contact-form input,.contact-form textarea{width:100%;padding:12px;margin-bottom:12px;border-radius:8px;border:1px solid #333;background:#1a1a3e;color:#fff;font-size:1em}
-.contact-form textarea{height:100px;resize:vertical}
-.contact-form button{background:#ff4d6d;color:#fff;padding:14px 30px;border:none;border-radius:30px;cursor:pointer;font-size:1em;width:100%}
-.contact-info .item{display:flex;gap:15px;margin-bottom:20px}
-.contact-info .item .icon{font-size:1.5em}
-.contact-info .item .label{font-weight:bold}
-.contact-info .item .value{color:#aaa}
-footer{background:#0a0a20;padding:40px 20px;margin-top:40px}
-.footer-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-.footer-inner h4{margin-bottom:10px}
-.footer-inner p,.footer-inner a{color:#aaa;font-size:0.9em}
-.copyright{text-align:center;color:#666;padding:20px;font-size:0.85em}
-@media(max-width:768px){.contact-section{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr}}
+.stat .num{font-size:2.5em;color:var(--accent);font-weight:700}
+.stat .label{color:#94a3b8;font-size:.9em}
+
+/* SERVICES */
+.services{background:var(--light)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;max-width:1100px;margin:0 auto}
+.service-card{background:var(--white);border-radius:12px;padding:35px 25px;box-shadow:0 2px 15px rgba(0,0,0,.06);transition:.3s;border:1px solid #e2e8f0}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,.1);border-color:var(--primary)}
+.service-icon{font-size:2.5em;margin-bottom:15px}
+.service-card h3{font-size:1.3em;margin-bottom:10px;color:var(--dark)}
+.service-card p{color:var(--gray);font-size:.95em;margin-bottom:15px}
+.service-price{color:var(--primary);font-weight:700;font-size:1.1em}
+
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px;max-width:1100px;margin:0 auto}
+.why-card{text-align:center;padding:30px 20px}
+.why-icon{font-size:2.5em;margin-bottom:15px}
+.why-card h3{margin-bottom:10px;color:var(--dark)}
+.why-card p{color:var(--gray);font-size:.9em}
+
+/* PORTFOLIO */
+.portfolio{background:var(--light)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.portfolio-item{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 2px 15px rgba(0,0,0,.06)}
+.portfolio-img{height:200px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:3em}
+.portfolio-item:nth-child(2) .portfolio-img{background:linear-gradient(135deg,#f093fb,#f5576c)}
+.portfolio-item:nth-child(3) .portfolio-img{background:linear-gradient(135deg,#4facfe,#00f2fe)}
+.portfolio-info{padding:20px}
+.portfolio-info h3{margin-bottom:5px;color:var(--dark)}
+.portfolio-info p{color:var(--gray);font-size:.9em}
+
+/* PROCESS */
+.process-steps{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;max-width:1100px;margin:0 auto}
+.step{flex:1;min-width:200px;max-width:250px;text-align:center;padding:25px 15px;position:relative}
+.step-num{width:50px;height:50px;border-radius:50%;background:var(--primary);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:1.3em;font-weight:700;margin:0 auto 15px}
+.step h3{margin-bottom:8px;color:var(--dark);font-size:1em}
+.step p{color:var(--gray);font-size:.85em}
+
+/* REVIEWS */
+.reviews{background:var(--light)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;max-width:1100px;margin:0 auto}
+.review-card{background:var(--white);border-radius:12px;padding:30px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.review-stars{color:var(--accent);font-size:1.2em;margin-bottom:10px}
+.review-text{color:#475569;font-style:italic;margin-bottom:15px;font-size:.95em}
+.review-author{font-weight:600;color:var(--dark)}
+.review-date{color:var(--gray);font-size:.8em}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--primary),#7c3aed);padding:70px 20px;text-align:center;color:var(--white)}
+.cta h2{font-size:2.2em;margin-bottom:15px}
+.cta p{font-size:1.1em;opacity:.9;margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-phone{font-size:2em;font-weight:700;color:var(--accent);display:block;margin-bottom:20px}
+
+/* FOOTER */
+.footer{background:var(--dark);color:#94a3b8;padding:40px 20px;text-align:center}
+.footer-links{display:flex;justify-content:center;gap:30px;margin-bottom:20px;flex-wrap:wrap}
+.footer-links a{color:#94a3b8;transition:.3s}
+.footer-links a:hover{color:var(--accent)}
+.footer p{font-size:.85em}
+
+/* MOBILE */
+@media(max-width:768px){
+  .header .container{flex-direction:column;gap:10px}
+  .nav{gap:15px;flex-wrap:wrap;justify-content:center}
+  .hero h1{font-size:1.8em}
+  .hero{padding:120px 15px 60px}
+  .stats{gap:25px}
+  .section-title{font-size:1.5em}
+  .cta h2{font-size:1.6em}
+  .cta-phone{font-size:1.4em}
+}
 </style>
 </head>
 <body>
-<div class="hero">
-<h1><span>Ремонт квартир</span><br>в <span class="accent">Перми</span></h1>
-<p>Превращаем ваши идеи в реальность. Комплексный ремонт под ключ с гарантией качества 3 года.</p>
-<div class="buttons">
-<a href="#contact" class="btn-primary">Рассчитать стоимость</a>
-<a href="tel:+79991234567" class="btn-secondary">Позвонить</a>
+
+<!-- HEADER -->
+<header class="header">
+<div class="container">
+<div class="logo"><span>&#9733;</span> Ремонт<span>Пермь</span></div>
+<nav class="nav">
+<a href="#services">Услуги</a>
+<a href="#portfolio">Портфолио</a>
+<a href="#reviews">Отзывы</a>
+<a href="#contact">Контакты</a>
+<a href="tel:+79991234567" class="phone-header">+7 (999) 123-45-67</a>
+</nav>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Профессиональный <span>ремонт квартир</span><br>в Перми</h1>
+<p>Косметический и капитальный ремонт под ключ. Бесплатный замер и смета. Гарантия на все работы — 2 года.</p>
+<div class="hero-btns">
+<a href="tel:+79991234567" class="btn btn-primary">Звоните сейчас</a>
+<a href="#services" class="btn btn-accent">Услуги и цены</a>
 </div>
 <div class="stats">
-<div class="stat"><div class="num">500+</div><div class="label">Выполненных проектов</div></div>
-<div class="stat"><div class="num">12</div><div class="label">Лет опыта</div></div>
-<div class="stat"><div class="num">3</div><div class="label">Года гарантии</div></div>
-</div>
-</div>
-
-<section>
-<h2>Почему выбирают нас</h2>
-<p class="subtitle">Мы гарантируем качество на каждом этапе</p>
-<div class="features">
-<div class="feature"><div class="icon">🛠</div><h4>Под ключ</h4><p>Полный цикл работ от дизайна до сдачи</p></div>
-<div class="feature"><div class="icon">💰</div><h4>Фикс. цена</h4><p>Смета не меняется после заключения договора</p></div>
-<div class="feature"><div class="icon">📅</div><h4>Сроки</h4><p>Соблюдаем сроки или компенсируем</p></div>
-<div class="feature"><div class="icon">✅</div><h4>Гарантия 3 года</h4><p>Полная гарантия на все виды работ</p></div>
-<div class="feature"><div class="icon">🚀</div><h4>Материалы</h4><p>Работаем с проверенными поставщиками</p></div>
-<div class="feature"><div class="icon">📱</div><h4>24/7 связь</h4><p>Всегда на связи с вами</p></div>
+<div class="stat"><div class="num">500+</div><div class="label">объектов сдано</div></div>
+<div class="stat"><div class="num">12</div><div class="label">лет опыта</div></div>
+<div class="stat"><div class="num">98%</div><div class="label">довольных клиентов</div></div>
+<div class="stat"><div class="num">2</div><div class="label">года гарантии</div></div>
 </div>
 </section>
 
-<section>
-<h2>Наши услуги</h2>
-<p class="subtitle">Все виды ремонтных работ под ключ</p>
-<div class="services">
-<div class="service"><h3>Косметический</h3><p>Обновление отделки без капитальных изменений</p><div class="price">от 3 500 р/м²</div></div>
-<div class="service"><h3>Капитальный</h3><p>Полная перепланировка и замена коммуникаций</p><div class="price">от 6 000 р/м²</div></div>
-<div class="service"><h3>Дизайнерский</h3><p>Эксклюзивный дизайн и премиум материалы</p><div class="price">от 10 000 р/м²</div></div>
+<!-- SERVICES -->
+<section class="services" id="services">
+<h2 class="section-title">Наши услуги</h2>
+<p class="section-subtitle">Полный спектр ремонтных работ любой сложности</p>
+<div class="services-grid">
+<div class="service-card">
+<div class="service-icon">&#128296;</div>
+<h3>Косметический ремонт</h3>
+<p>Обновление отделки: поклейка обоев, покраска стен и потолков, замена напольного покрытия.</p>
+<div class="service-price">от 2 500 руб/м²</div>
+</div>
+<div class="service-card">
+<div class="service-icon">&#127968;</div>
+<h3>Капитальный ремонт</h3>
+<p>Полная перепланировка, замена коммуникаций, электрика, сантехника, чистовая отделка.</p>
+<div class="service-price">от 5 000 руб/м²</div>
+</div>
+<div class="service-card">
+<div class="service-icon">&#9997;</div>
+<h3>Дизайн-проект</h3>
+<p>Разработка дизайн-проекта интерьера, 3D-визуализация, подбор материалов и мебели.</p>
+<div class="service-price">от 800 руб/м²</div>
+</div>
+<div class="service-card">
+<div class="service-icon">&#128684;</div>
+<h3>Ремонт в новостройке</h3>
+<p>Отделка квартир с нуля в новых домах: стяжка, штукатурка, все виды работ.</p>
+<div class="service-price">от 4 000 руб/м²</div>
+</div>
+<div class="service-card">
+<div class="service-icon">&#128701;</div>
+<h3>Санузел под ключ</h3>
+<p>Полный ремонт ванной и туалета: плитка, сантехника, гидроизоляция.</p>
+<div class="service-price">от 60 000 руб</div>
+</div>
+<div class="service-card">
+<div class="service-icon">&#9889;</div>
+<h3>Электромонтаж</h3>
+<p>Замена проводки, установка розеток, выключателей, щитков, освещение.</p>
+<div class="service-price">от 500 руб/точка</div>
+</div>
 </div>
 </section>
 
-<section>
-<h2>Этапы работы</h2>
-<div class="steps">
-<div class="step"><div class="num">1</div><h4>Заявка</h4><p>Оставьте заявку и мы свяжемся</p></div>
-<div class="step"><div class="num">2</div><h4>Замер</h4><p>Бесплатный выезд и смета</p></div>
-<div class="step"><div class="num">3</div><h4>Ремонт</h4><p>Выполняем работы по договору</p></div>
-<div class="step"><div class="num">4</div><h4>Сдача</h4><p>Приёмка и гарантия 3 года</p></div>
+<!-- WHY US -->
+<section id="why">
+<h2 class="section-title">Почему выбирают нас</h2>
+<p class="section-subtitle">Мы работаем честно и открыто</p>
+<div class="why-grid">
+<div class="why-card">
+<div class="why-icon">&#128176;</div>
+<h3>Фиксированная цена</h3>
+<p>Смета фиксируется в договоре. Никаких скрытых доплат и навязанных услуг.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">&#128197;</div>
+<h3>Точные сроки</h3>
+<p>Сроки прописываются в договоре. За каждый день просрочки — скидка клиенту.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">&#128736;</div>
+<h3>Свои бригады</h3>
+<p>Опытные мастера в штате. Не передаём заказы субподрядчикам.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">&#128220;</div>
+<h3>Договор и гарантия</h3>
+<p>Официальный договор, акты приёмки, гарантия 2 года на все виды работ.</p>
+</div>
 </div>
 </section>
 
-<div class="cta">
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+<h2 class="section-title">Наши работы</h2>
+<p class="section-subtitle">Примеры завершённых объектов в Перми</p>
+<div class="portfolio-grid">
+<div class="portfolio-item">
+<div class="portfolio-img">&#127968;</div>
+<div class="portfolio-info">
+<h3>Капремонт 2-комн. Компрос, 50</h3>
+<p>65 м² • 45 дней • Капитальный ремонт</p>
+</div>
+</div>
+<div class="portfolio-item">
+<div class="portfolio-img">&#127961;</div>
+<div class="portfolio-info">
+<h3>Студия в ЖК Парковый</h3>
+<p>38 м² • 30 дней • Ремонт в новостройке</p>
+</div>
+</div>
+<div class="portfolio-item">
+<div class="portfolio-img">&#128705;</div>
+<div class="portfolio-info">
+<h3>Санузел под ключ, Попова 36</h3>
+<p>8 м² • 14 дней • Плитка, сантехника</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section>
+<h2 class="section-title">Как мы работаем</h2>
+<p class="section-subtitle">От звонка до сдачи объекта — 4 простых шага</p>
+<div class="process-steps">
+<div class="step">
+<div class="step-num">1</div>
+<h3>Заявка</h3>
+<p>Звоните или оставляете заявку. Мы свяжемся за 15 минут.</p>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<h3>Замер и смета</h3>
+<p>Мастер приедет бесплатно, оценит объём и составит смету.</p>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<h3>Ремонт</h3>
+<p>Подписываем договор. Бригада выполняет работы точно в срок.</p>
+</div>
+<div class="step">
+<div class="step-num">4</div>
+<h3>Сдача</h3>
+<p>Приёмка работ, подписание акта, гарантийный талон на 2 года.</p>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+<h2 class="section-title">Отзывы клиентов</h2>
+<p class="section-subtitle">Что говорят о нас заказчики</p>
+<div class="reviews-grid">
+<div class="review-card">
+<div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="review-text">Делали капремонт двушки на Компросе. Ребята сделали всё чётко, в срок, без накруток. Рекомендую!</p>
+<div class="review-author">Алексей М.</div>
+<div class="review-date">февраль 2026</div>
+</div>
+<div class="review-card">
+<div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="review-text">Заказывали ремонт санузла. Всё аккуратно, плитка легла идеально. Спасибо мастеру Сергею!</p>
+<div class="review-author">Ольга К.</div>
+<div class="review-date">январь 2026</div>
+</div>
+<div class="review-card">
+<div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="review-text">Отделка новостройки в ЖК Парковый. Сдали на 3 дня раньше срока. Качество отличное, цена адекватная.</p>
+<div class="review-author">Дмитрий В.</div>
+<div class="review-date">декабрь 2025</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
 <h2>Готовы начать ремонт?</h2>
-<p>Оставьте заявку и получите бесплатную консультацию</p>
-<a href="#contact" class="btn-primary">Оставить заявку</a>
-</div>
-
-<section>
-<h2>Отзывы клиентов</h2>
-<div class="reviews">
-<div class="review"><div class="header"><div class="avatar">А</div><div><div class="name">Анна П.</div><div class="stars">★★★★★</div></div></div><p>Отличная команда! Сделали ремонт в срок, качество на высоте. Рекомендую!</p></div>
-<div class="review"><div class="header"><div class="avatar">Д</div><div><div class="name">Дмитрий К.</div><div class="stars">★★★★★</div></div></div><p>Профессиональный подход. Цена не изменилась. Очень доволен!</p></div>
-<div class="review"><div class="header"><div class="avatar">Е</div><div><div class="name">Елена С.</div><div class="stars">★★★★★</div></div></div><p>Капитальный ремонт двушки. Всё идеально, спасибо!</p></div>
-</div>
+<p>Звоните прямо сейчас — бесплатный замер и смета в день обращения!</p>
+<a href="tel:+79991234567" class="cta-phone">+7 (999) 123-45-67</a>
+<a href="tel:+79991234567" class="btn btn-accent">Заказать звонок</a>
 </section>
 
-<section id="contact">
-<h2>Связаться с нами</h2>
-<div class="contact-section">
-<div class="contact-form">
-<input type="text" placeholder="Ваше имя" required>
-<input type="tel" placeholder="Телефон" required>
-<input type="email" placeholder="Email">
-<textarea placeholder="Сообщение"></textarea>
-<button type="submit">Отправить</button>
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-links">
+<a href="#services">Услуги</a>
+<a href="#portfolio">Портфолио</a>
+<a href="#reviews">Отзывы</a>
+<a href="#contact">Контакты</a>
 </div>
-<div class="contact-info">
-<div class="item"><div class="icon">📍</div><div><div class="label">Адрес</div><div class="value">г. Пермь, ул. Монастырская 123</div></div></div>
-<div class="item"><div class="icon">📞</div><div><div class="label">Телефон</div><div class="value">+7 (999) 123-45-67</div></div></div>
-<div class="item"><div class="icon">🕒</div><div><div class="label">Режим работы</div><div class="value">Пн-Пт: 9:00-20:00, Сб: 10:00-18:00</div></div></div>
-<div class="item"><div class="icon">💬</div><div><div class="label">Мессенджеры</div><div class="value"><a href="https://t.me/VKProtarget1">Telegram</a> | <a href="https://vk.ru/club236479775">VK</a></div></div></div>
-</div>
-</div>
-</section>
-
-<footer>
-<div class="footer-inner">
-<div><h4>Ремонт квартир в Перми</h4><p>Комплексный ремонт под ключ с гарантией</p></div>
-<div><h4>Контакты</h4><p>ул. Монастырская 123, Пермь</p><p>+7 (999) 123-45-67</p></div>
-<div><h4>Соцсети</h4><p><a href="https://t.me/VKProtarget1">Telegram</a></p><p><a href="https://vk.ru/club236479775">VK</a></p></div>
-</div>
-<div class="copyright">© 2025 Ремонт квартир в Перми</div>
+<p>Ремонт квартир в Перми • г. Пермь, Пермский край</p>
+<p style="margin-top:10px">&copy; 2026 РемонтПермь. Все права защищены.</p>
 </footer>
+
 </body>
 </html>
