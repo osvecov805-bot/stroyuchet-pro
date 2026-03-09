@@ -58,6 +58,29 @@ section{padding:70px 20px}
 .service-card{background:var(--white);border-radius:12px;padding:35px 25px;box-shadow:0 2px 15px rgba(0,0,0,.06);transition:.3s;border:1px solid #e2e8f0}
 .service-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,.1);border-color:var(--primary)}
 .service-icon{font-size:2.5em;margin-bottom:15px}
+.service-card:hover{cursor:pointer}
+.service-card-footer{margin-top:20px;padding-top:15px;border-top:1px solid #e2e8f0;display:flex;gap:10px}
+.service-card .btn-more{flex:1;padding:10px 15px;font-size:.9em;background:#f0f4f8;color:var(--primary);border:none;border-radius:8px;cursor:pointer;transition:.3s;text-align:center}
+.service-card .btn-more:hover{background:var(--primary);color:var(--white)}
+/* MODAL */
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:1000;animation:fadeIn .3s}
+.modal-overlay.active{display:flex;align-items:center;justify-content:center}
+.modal-content{background:var(--white);border-radius:12px;max-width:700px;width:90%;max-height:90vh;overflow-y:auto;padding:40px;position:relative;animation:slideUp .3s;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal-close{position:absolute;top:20px;right:20px;width:30px;height:30px;border:none;background:none;font-size:1.5em;cursor:pointer;color:#94a3b8;transition:.3s}
+.modal-close:hover{color:var(--dark)}
+.modal-title{font-size:1.8em;color:var(--dark);margin-bottom:20px}
+.modal-description{color:var(--gray);line-height:1.8;margin-bottom:20px;font-size:.95em}
+.modal-price{font-size:1.3em;color:var(--primary);font-weight:700;margin:20px 0}
+.modal-date{color:#94a3b8;font-size:.85em;margin-bottom:30px}
+.modal-block{margin:30px 0}
+.modal-block h4{font-size:1.1em;color:var(--dark);margin-bottom:15px;font-weight:600}
+.modal-block ul{list-style:none;padding:0}
+.modal-block li{padding:10px 0;padding-left:25px;position:relative;color:var(--gray);font-size:.95em}
+.modal-block li:before{content:"✓";position:absolute;left:0;color:var(--primary);font-weight:700}
+.modal-actions{display:flex;gap:15px;margin-top:30px;padding-top:20px;border-top:1px solid #e2e8f0}
+.modal-actions .btn{flex:1}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
 .service-card h3{font-size:1.3em;margin-bottom:10px;color:var(--dark)}
 .service-card p{color:var(--gray);font-size:.95em;margin-bottom:15px}
 .service-price{color:var(--primary);font-weight:700;font-size:1.1em}
@@ -177,14 +200,7 @@ body{padding-top:60px}
 <section class="services" id="services">
 <h2 class="section-title">Наши услуги</h2>
 <p class="section-subtitle">Полный спектр ремонтных работ любой сложности</p>
-<div class="services-grid">
-<div class="service-card"><div class="service-icon">🔨</div><h3>Косметический ремонт</h3><p>Обновление отделки: поклейка обоев, покраска стен и потолков, замена напольного покрытия.</p><div class="service-price">от 2 500 руб/м²</div></div>
-<div class="service-card"><div class="service-icon">🏠</div><h3>Капитальный ремонт</h3><p>Полная перепланировка, замена коммуникаций, электрика, сантехника, чистовая отделка.</p><div class="service-price">от 5 000 руб/м²</div></div>
-<div class="service-card"><div class="service-icon">✍</div><h3>Дизайн-проект</h3><p>Разработка дизайн-проекта интерьера, 3D-визуализация, подбор материалов и мебели.</p><div class="service-price">от 800 руб/м²</div></div>
-<div class="service-card"><div class="service-icon">🏗</div><h3>Ремонт в новостройке</h3><p>Отделка квартир с нуля в новых домах: стяжка, штукатурка, все виды работ.</p><div class="service-price">от 4 000 руб/м²</div></div>
-<div class="service-card"><div class="service-icon">🚽</div><h3>Санузел под ключ</h3><p>Полный ремонт ванной и туалета: плитка, сантехника, гидроизоляция.</p><div class="service-price">от 60 000 руб</div></div>
-<div class="service-card"><div class="service-icon">⚡</div><h3>Электромонтаж</h3><p>Замена проводки, установка розеток, выключателей, щитков, освещение.</p><div class="service-price">от 500 руб/точка</div></div>
-</div>
+<div class="services-grid" id="services-grid"></div>
 </section>
 <section>
 <h2 class="section-title">Почему выбирают нас</h2>
@@ -254,6 +270,26 @@ body{padding-top:60px}
 <a href="tel:+79523309944" class="cta-phone">+7 (952) 330-99-44</a>
 <a href="tel:+79523309944" class="btn btn-accent">Заказать звонок</a>
 </section>
+<div class="modal-overlay" id="serviceModal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeServiceModal()">✕</button>
+<h3 class="modal-title" id="modalTitle"></h3>
+<p class="modal-description" id="modalDescription"></p>
+<div class="modal-price" id="modalPrice"></div>
+<div class="modal-date" id="modalDate"></div>
+<div class="modal-block">
+<h4>Преимущества</h4>
+<ul id="modalAdvantages"></ul>
+</div>
+<div class="modal-block">
+<h4>Что входит в услугу</h4>
+<ul id="modalIncludes"></ul>
+</div>
+<div class="modal-actions">
+<a href="#contact" class="btn btn-primary" onclick="closeServiceModal()">Заказать расчёт</a>
+</div>
+</div>
+</div>
 <footer class="footer">
 <div class="footer-social">
 <a href="https://t.me/VKProtarget1" title="Telegram"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
@@ -271,8 +307,14 @@ body{padding-top:60px}
 <p>© 2026 РемонтПермь. Все права защищены.</p>
 </footer>
 <script>
+let services=[],config={};async function loadServices(){try{const[servicesRes,configRes]=await Promise.all([fetch('services.json'),fetch('regional-config.json')]);services=await servicesRes.json();config=await configRes.json();renderServices()}catch(e){console.error('Error loading data:',e)}}
+function renderServices(){const grid=document.getElementById('services-grid');grid.innerHTML='';const icons=['🔨','🏠','✍','🏗','🚽','⚡'];services.forEach((s,i)=>{const card=document.createElement('div');card.className='service-card';card.onclick=()=>openServiceModal(s);const unit=s.priceUnit.includes('м²')?'м²':s.priceUnit.includes('точка')?'точка':'';card.innerHTML=`<div class="service-icon">${icons[i]}</div><h3>${s.title}</h3><p>${s.shortDescription}</p><div class="service-price">от ${s.priceFrom.toLocaleString('ru-RU')} ${s.priceUnit}</div><div class="service-card-footer"><button class="btn-more">Подробнее</button></div>`;grid.appendChild(card)})}
+function openServiceModal(service){const modal=document.getElementById('serviceModal');document.getElementById('modalTitle').textContent=service.title;document.getElementById('modalDescription').textContent=service.fullDescription;document.getElementById('modalPrice').textContent=`Цена от ${service.priceFrom.toLocaleString('ru-RU')} ${service.priceUnit}`;document.getElementById('modalDate').textContent=`Цены актуальны для ${service.region} на ${service.lastUpdate}`;const advList=document.getElementById('modalAdvantages');advList.innerHTML='';service.advantages.forEach(a=>{const li=document.createElement('li');li.textContent=a;advList.appendChild(li)});const inclList=document.getElementById('modalIncludes');inclList.innerHTML='';service.includes.forEach(i=>{const li=document.createElement('li');li.textContent=i;inclList.appendChild(li)});modal.classList.add('active');document.body.style.overflow='hidden'}
+function closeServiceModal(){const modal=document.getElementById('serviceModal');modal.classList.remove('active');document.body.style.overflow='auto'}
+document.getElementById('serviceModal').addEventListener('click',function(e){if(e.target===this)closeServiceModal()});
 function closeMobile(){document.getElementById('mobileMenu').classList.remove('active');document.querySelector('.hamburger').classList.remove('active')}
-document.addEventListener('click',function(e){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');if(m.classList.contains('active')&&!m.contains(e.target)&&!h.contains(e.target)){closeMobile()}})
+document.addEventListener('click',function(e){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');if(m.classList.contains('active')&&!m.contains(e.target)&&!h.contains(e.target)){closeMobile()}});
+loadServices();
 </script>
 </body>
 </html>
