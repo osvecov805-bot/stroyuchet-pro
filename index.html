@@ -25,12 +25,13 @@ a{text-decoration:none;color:inherit}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,6px)}
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-6px)}
-.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:var(--dark);padding:20px;flex-direction:column;gap:15px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.3);z-index:99}
+.mobile-menu{display:none;position:fixed;top:60px;right:0;background:var(--dark);min-width:220px;box-shadow:-2px 2px 15px rgba(0,0,0,.3);border-radius:0 0 0 12px;padding:20px;z-index:150;flex-direction:column;gap:15px}
 .mobile-menu.active{display:flex}
-.mobile-menu a{color:#cbd5e1;font-size:1.1em;padding:10px 0;transition:.3s}
+.mobile-menu a{color:#cbd5e1;font-size:1em;padding:8px 0;border-bottom:1px solid #334155;transition:.3s}
+.mobile-menu a:last-child{border-bottom:none}
 .mobile-menu a:hover{color:var(--accent)}
 /* HERO */
-.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0f172a 100%);padding:80px 20px 80px;text-align:center;color:var(--white);position:relative;overflow:hidden}
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0f172a 100%);padding:100px 20px 80px;text-align:center;color:var(--white);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></svg>');opacity:.5}
 .hero h1{font-size:2.8em;margin-bottom:15px;position:relative}
 .hero h1 span{color:var(--accent)}
@@ -102,11 +103,10 @@ section{padding:70px 20px}
 .contact-info a{color:var(--accent);transition:.3s}
 .contact-info a:hover{color:#d97706}
 /* SOCIAL ICONS */
-.social-icons{display:flex;gap:15px;margin-top:5px}
-.social-icons a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);transition:.3s}
+.social-icons{display:flex;gap:15px;margin-top:10px}
+.social-icons a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#334155;transition:.3s}
 .social-icons a:hover{background:var(--accent);transform:scale(1.1)}
 .social-icons a svg{width:20px;height:20px;fill:var(--white)}
-.social-icons a:hover svg{fill:var(--dark)}
 /* CTA */
 .cta{background:linear-gradient(135deg,var(--primary),#7c3aed);padding:70px 20px;text-align:center;color:var(--white)}
 .cta h2{font-size:2.2em;margin-bottom:15px}
@@ -118,12 +118,19 @@ section{padding:70px 20px}
 .footer-links a{color:#94a3b8;transition:.3s}
 .footer-links a:hover{color:var(--accent)}
 .footer p{font-size:.85em}
+.footer-social{display:flex;justify-content:center;gap:15px;margin-bottom:15px}
+.footer-social a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#334155;transition:.3s}
+.footer-social a:hover{background:var(--accent);transform:scale(1.1)}
+.footer-social a svg{width:18px;height:18px;fill:#94a3b8}
+.footer-social a:hover svg{fill:var(--dark)}
 /* MOBILE */
 @media(max-width:768px){
+body{padding-top:60px}
 .nav{display:none}
+.phone-header{display:none}
 .hamburger{display:flex}
 .hero h1{font-size:1.8em}
-.hero{padding:60px 15px 60px}
+.hero{padding:80px 15px 60px}
 .stats{gap:25px}
 .section-title{font-size:1.5em}
 .contact-grid{grid-template-columns:1fr}
@@ -141,8 +148,8 @@ section{padding:70px 20px}
 <a href="#portfolio">Портфолио</a>
 <a href="#reviews">Отзывы</a>
 <a href="#contact">Контакты</a>
-<a href="tel:+79523309944" class="phone-header">+7 (952) 330-99-44</a>
 </nav>
+<a href="tel:+79523309944" class="phone-header">+7 (952) 330-99-44</a>
 <div class="hamburger" onclick="this.classList.toggle('active');document.getElementById('mobileMenu').classList.toggle('active')">
 <span></span><span></span><span></span>
 </div>
@@ -153,11 +160,11 @@ section{padding:70px 20px}
 <a href="#portfolio" onclick="closeMobile()">Портфолио</a>
 <a href="#reviews" onclick="closeMobile()">Отзывы</a>
 <a href="#contact" onclick="closeMobile()">Контакты</a>
-<a href="tel:+79523309944" style="color:var(--accent);font-weight:700">+7 (952) 330-99-44</a>
+<a href="tel:+79523309944">📞 +7 (952) 330-99-44</a>
 </div>
 <section class="hero">
 <h1>Профессиональный <span>ремонт квартир</span><br>в Перми</h1>
-<p>Косметический и капитальный ремонт под ключ. Бесплатный замер и смета. Гарантия на все работы &mdash; 2 года.</p>
+<p>Косметический и капитальный ремонт под ключ. Бесплатный замер и смета. Гарантия на все работы — 2 года.</p>
 <div class="hero-btns">
 <a href="tel:+79523309944" class="btn btn-primary">Звоните сейчас</a>
 <a href="#services" class="btn btn-accent">Услуги и цены</a>
@@ -181,28 +188,28 @@ section{padding:70px 20px}
 <div class="service-card"><div class="service-icon">⚡</div><h3>Электромонтаж</h3><p>Замена проводки, установка розеток, выключателей, щитков, освещение.</p><div class="service-price">от 500 руб/точка</div></div>
 </div>
 </section>
-<section id="why">
+<section>
 <h2 class="section-title">Почему выбирают нас</h2>
 <p class="section-subtitle">Мы работаем честно и открыто</p>
 <div class="why-grid">
-<div class="why-card"><div class="why-icon">💰</div><h3>Фиксированная цена</h3><p>Смета фиксируется в договоре. Никаких скрытых доплат и навязанных услуг.</p></div>
-<div class="why-card"><div class="why-icon">📅</div><h3>Точные сроки</h3><p>Сроки прописываются в договоре. За каждый день просрочки &mdash; скидка клиенту.</p></div>
+<div class="why-card"><div class="why-icon">💰</div><h3>Фиксированная цена</h3><p>Смета фиксируется в договоре. Никаких скрытых доплат.</p></div>
+<div class="why-card"><div class="why-icon">📅</div><h3>Точные сроки</h3><p>Сроки прописываются в договоре. За каждый день просрочки — скидка.</p></div>
 <div class="why-card"><div class="why-icon">🛠</div><h3>Свои бригады</h3><p>Опытные мастера в штате. Не передаём заказы субподрядчикам.</p></div>
-<div class="why-card"><div class="why-icon">📜</div><h3>Договор и гарантия</h3><p>Официальный договор, акты приёмки, гарантия 2 года на все виды работ.</p></div>
+<div class="why-card"><div class="why-icon">📜</div><h3>Договор и гарантия</h3><p>Официальный договор, акты приёмки, гарантия 2 года.</p></div>
 </div>
 </section>
 <section class="portfolio" id="portfolio">
 <h2 class="section-title">Наши работы</h2>
 <p class="section-subtitle">Примеры завершённых объектов в Перми</p>
 <div class="portfolio-grid">
-<div class="portfolio-item"><div class="portfolio-img">🏠</div><div class="portfolio-info"><h3>Капремонт 2-комн. Компрос, 50</h3><p>65 м² &bull; 45 дней &bull; Капитальный ремонт</p></div></div>
-<div class="portfolio-item"><div class="portfolio-img">🏙</div><div class="portfolio-info"><h3>Студия в ЖК Парковый</h3><p>38 м² &bull; 30 дней &bull; Ремонт в новостройке</p></div></div>
-<div class="portfolio-item"><div class="portfolio-img">🛁</div><div class="portfolio-info"><h3>Санузел под ключ, Попова 36</h3><p>8 м² &bull; 14 дней &bull; Плитка, сантехника</p></div></div>
+<div class="portfolio-item"><div class="portfolio-img">🏠</div><div class="portfolio-info"><h3>Капремонт 2-комн. Компрос, 50</h3><p>65 м² • 45 дней • Капитальный ремонт</p></div></div>
+<div class="portfolio-item"><div class="portfolio-img">🏙</div><div class="portfolio-info"><h3>Студия в ЖК Парковый</h3><p>38 м² • 30 дней • Ремонт в новостройке</p></div></div>
+<div class="portfolio-item"><div class="portfolio-img">🛁</div><div class="portfolio-info"><h3>Санузел под ключ, Попова 36</h3><p>8 м² • 14 дней • Плитка, сантехника</p></div></div>
 </div>
 </section>
-<section id="process">
+<section>
 <h2 class="section-title">Как мы работаем</h2>
-<p class="section-subtitle">От звонка до сдачи объекта &mdash; 4 простых шага</p>
+<p class="section-subtitle">От звонка до сдачи объекта — 4 простых шага</p>
 <div class="process-steps">
 <div class="step"><div class="step-num">1</div><h3>Заявка</h3><p>Звоните или оставляете заявку. Мы свяжемся за 15 минут.</p></div>
 <div class="step"><div class="step-num">2</div><h3>Замер и смета</h3><p>Мастер приедет бесплатно, оценит объём и составит смету.</p></div>
@@ -232,11 +239,11 @@ section{padding:70px 20px}
 </form>
 <div class="contact-info">
 <p>📍 <strong>Адрес</strong><br>г. Пермь, Пермский край</p>
+<p>📞 <strong>Телефон</strong><br><a href="tel:+79523309944">+7 (952) 330-99-44</a></p>
 <p>🕒 <strong>Режим работы</strong><br>Пн-Пт: 9:00-20:00, Сб: 10:00-18:00</p>
-<p><strong>Мы в соцсетях:</strong></p>
 <div class="social-icons">
 <a href="https://t.me/VKProtarget1" title="Telegram"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
-<a href="https://vk.ru/club236479775" title="ВКонтакте"><svg viewBox="0 0 24 24"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.18-3.61 2.18-3.61.119-.254.322-.491.762-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg></a>
+<a href="https://vk.ru/club236479775" title="ВКонтакте"><svg viewBox="0 0 24 24"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.847 2.49 2.271 4.674 2.862 4.674.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.644v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.18-3.61 2.18-3.61.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.644-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg></a>
 <a href="mailto:babushkinyury@yandex.ru" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
 <a href="tel:+79523309944" title="Телефон"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
 </div>
@@ -245,25 +252,29 @@ section{padding:70px 20px}
 </section>
 <section class="cta">
 <h2>Готовы начать ремонт?</h2>
-<p>Звоните прямо сейчас &mdash; бесплатный замер и смета в день обращения!</p>
+<p>Звоните прямо сейчас — бесплатный замер и смета в день обращения!</p>
 <a href="tel:+79523309944" class="cta-phone">+7 (952) 330-99-44</a>
 <a href="tel:+79523309944" class="btn btn-accent">Заказать звонок</a>
 </section>
 <footer class="footer">
+<div class="footer-social">
+<a href="https://t.me/VKProtarget1" title="Telegram"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+<a href="https://vk.ru/club236479775" title="ВКонтакте"><svg viewBox="0 0 24 24"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.847 2.49 2.271 4.674 2.862 4.674.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.644v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.18-3.61 2.18-3.61.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.644-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg></a>
+<a href="mailto:babushkinyury@yandex.ru" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+<a href="tel:+79523309944" title="Телефон"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+</div>
 <div class="footer-links">
 <a href="#services">Услуги</a>
 <a href="#portfolio">Портфолио</a>
 <a href="#reviews">Отзывы</a>
 <a href="#contact">Контакты</a>
 </div>
-<p>Ремонт квартир в Перми &bull; г. Пермь, Пермский край<br>Тел: <a href="tel:+79523309944">+7 (952) 330-99-44</a> | Email: <a href="mailto:babushkinyury@yandex.ru">babushkinyury@yandex.ru</a><br><a href="https://vk.ru/club236479775">Мы ВКонтакте</a> | Telegram: <a href="https://t.me/VKProtarget1">@VKProtarget1</a></p>
-<p>&copy; 2026 РемонтПермь. Все права защищены.</p>
+<p>Ремонт квартир в Перми • г. Пермь, Пермский край<br>Тел: <a href="tel:+79523309944">+7 (952) 330-99-44</a> | Email: <a href="mailto:babushkinyury@yandex.ru">babushkinyury@yandex.ru</a></p>
+<p>© 2026 РемонтПермь. Все права защищены.</p>
 </footer>
 <script>
-function closeMobile(){
-document.getElementById('mobileMenu').classList.remove('active');
-document.querySelector('.hamburger').classList.remove('active');
-}
+function closeMobile(){document.getElementById('mobileMenu').classList.remove('active');document.querySelector('.hamburger').classList.remove('active')}
+document.addEventListener('click',function(e){var m=document.getElementById('mobileMenu');var h=document.querySelector('.hamburger');if(m.classList.contains('active')&&!m.contains(e.target)&&!h.contains(e.target)){closeMobile()}})
 </script>
 </body>
 </html>
