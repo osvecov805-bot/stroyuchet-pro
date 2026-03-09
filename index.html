@@ -10,7 +10,6 @@
 :root{--primary:#2563eb;--primary-dark:#1d4ed8;--accent:#f59e0b;--dark:#1e293b;--gray:#64748b;--light:#f8fafc;--white:#fff}
 body{font-family:'Segoe UI',Arial,sans-serif;color:#334155;line-height:1.6}
 a{text-decoration:none;color:inherit}
-
 /* HEADER */
 .header{background:var(--dark);padding:15px 0;position:fixed;width:100%;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.3)}
 .header .container{display:flex;justify-content:space-between;align-items:center}
@@ -20,7 +19,6 @@ a{text-decoration:none;color:inherit}
 .nav a{color:#cbd5e1;font-size:.95em;transition:.3s}
 .nav a:hover{color:var(--accent)}
 .phone-header{color:var(--accent);font-weight:700;font-size:1.1em}
-
 /* HERO */
 .hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0f172a 100%);padding:140px 20px 80px;text-align:center;color:var(--white);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></svg>');opacity:.5}
@@ -33,19 +31,16 @@ a{text-decoration:none;color:inherit}
 .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 5px 20px rgba(37,99,235,.4)}
 .btn-accent{background:var(--accent);color:var(--dark)}
 .btn-accent:hover{background:#d97706;transform:translateY(-2px)}
-
 /* CONTAINER */
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
 section{padding:70px 20px}
 .section-title{text-align:center;font-size:2em;margin-bottom:10px;color:var(--dark)}
 .section-subtitle{text-align:center;color:var(--gray);margin-bottom:50px;font-size:1.05em}
-
 /* STATS */
 .stats{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;margin-top:40px;position:relative}
 .stat{text-align:center}
 .stat .num{font-size:2.5em;color:var(--accent);font-weight:700}
 .stat .label{color:#94a3b8;font-size:.9em}
-
 /* SERVICES */
 .services{background:var(--light)}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;max-width:1100px;margin:0 auto}
@@ -55,14 +50,12 @@ section{padding:70px 20px}
 .service-card h3{font-size:1.3em;margin-bottom:10px;color:var(--dark)}
 .service-card p{color:var(--gray);font-size:.95em;margin-bottom:15px}
 .service-price{color:var(--primary);font-weight:700;font-size:1.1em}
-
 /* WHY US */
 .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px;max-width:1100px;margin:0 auto}
 .why-card{text-align:center;padding:30px 20px}
 .why-icon{font-size:2.5em;margin-bottom:15px}
 .why-card h3{margin-bottom:10px;color:var(--dark)}
 .why-card p{color:var(--gray);font-size:.9em}
-
 /* PORTFOLIO */
 .portfolio{background:var(--light)}
 .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1100px;margin:0 auto}
@@ -73,14 +66,12 @@ section{padding:70px 20px}
 .portfolio-info{padding:20px}
 .portfolio-info h3{margin-bottom:5px;color:var(--dark)}
 .portfolio-info p{color:var(--gray);font-size:.9em}
-
 /* PROCESS */
 .process-steps{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;max-width:1100px;margin:0 auto}
 .step{flex:1;min-width:200px;max-width:250px;text-align:center;padding:25px 15px;position:relative}
 .step-num{width:50px;height:50px;border-radius:50%;background:var(--primary);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:1.3em;font-weight:700;margin:0 auto 15px}
 .step h3{margin-bottom:8px;color:var(--dark);font-size:1em}
 .step p{color:var(--gray);font-size:.85em}
-
 /* REVIEWS */
 .reviews{background:var(--light)}
 .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;max-width:1100px;margin:0 auto}
@@ -89,39 +80,47 @@ section{padding:70px 20px}
 .review-text{color:#475569;font-style:italic;margin-bottom:15px;font-size:.95em}
 .review-author{font-weight:600;color:var(--dark)}
 .review-date{color:var(--gray);font-size:.8em}
-
+/* CONTACT */
+.contact{background:var(--dark);color:var(--white);padding:70px 20px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1100px;margin:0 auto}
+.contact-form input,.contact-form textarea{width:100%;padding:12px 15px;border:1px solid #475569;border-radius:8px;background:#1e293b;color:var(--white);font-size:1em;margin-bottom:15px;font-family:inherit}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#94a3b8}
+.contact-form textarea{height:120px;resize:vertical}
+.contact-form button{width:100%;padding:15px;background:var(--accent);color:var(--dark);border:none;border-radius:8px;font-size:1.1em;font-weight:700;cursor:pointer;transition:.3s}
+.contact-form button:hover{background:#d97706;transform:translateY(-2px)}
+.contact-info p{margin-bottom:15px;color:#cbd5e1}
+.contact-info a{color:var(--accent);transition:.3s}
+.contact-info a:hover{color:#d97706}
 /* CTA */
 .cta{background:linear-gradient(135deg,var(--primary),#7c3aed);padding:70px 20px;text-align:center;color:var(--white)}
 .cta h2{font-size:2.2em;margin-bottom:15px}
 .cta p{font-size:1.1em;opacity:.9;margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto}
 .cta-phone{font-size:2em;font-weight:700;color:var(--accent);display:block;margin-bottom:20px}
-
 /* FOOTER */
 .footer{background:var(--dark);color:#94a3b8;padding:40px 20px;text-align:center}
 .footer-links{display:flex;justify-content:center;gap:30px;margin-bottom:20px;flex-wrap:wrap}
 .footer-links a{color:#94a3b8;transition:.3s}
 .footer-links a:hover{color:var(--accent)}
 .footer p{font-size:.85em}
-
 /* MOBILE */
 @media(max-width:768px){
-  .header .container{flex-direction:column;gap:10px}
-  .nav{gap:15px;flex-wrap:wrap;justify-content:center}
-  .hero h1{font-size:1.8em}
-  .hero{padding:120px 15px 60px}
-  .stats{gap:25px}
-  .section-title{font-size:1.5em}
-  .cta h2{font-size:1.6em}
-  .cta-phone{font-size:1.4em}
+.header .container{flex-direction:column;gap:10px}
+.nav{gap:15px;flex-wrap:wrap;justify-content:center}
+.hero h1{font-size:1.8em}
+.hero{padding:120px 15px 60px}
+.stats{gap:25px}
+.section-title{font-size:1.5em}
+.contact-grid{grid-template-columns:1fr}
+.cta h2{font-size:1.6em}
+.cta-phone{font-size:1.4em}
 }
 </style>
 </head>
 <body>
-
 <!-- HEADER -->
 <header class="header">
 <div class="container">
-<div class="logo"><span>&#9733;</span> Ремонт<span>Пермь</span></div>
+<div class="logo">★ <span>Ремонт</span>Пермь</div>
 <nav class="nav">
 <a href="#services">Услуги</a>
 <a href="#portfolio">Портфолио</a>
@@ -131,10 +130,9 @@ section{padding:70px 20px}
 </nav>
 </div>
 </header>
-
 <!-- HERO -->
 <section class="hero">
-<h1>Профессиональный <span>ремонт квартир</span><br>в Перми</h1>
+<h1><span>Профессиональный</span> <span>ремонт квартир</span><br>в Перми</h1>
 <p>Косметический и капитальный ремонт под ключ. Бесплатный замер и смета. Гарантия на все работы — 2 года.</p>
 <div class="hero-btns">
 <a href="tel:+79523309944" class="btn btn-primary">Звоните сейчас</a>
@@ -147,170 +145,90 @@ section{padding:70px 20px}
 <div class="stat"><div class="num">2</div><div class="label">года гарантии</div></div>
 </div>
 </section>
-
 <!-- SERVICES -->
 <section class="services" id="services">
 <h2 class="section-title">Наши услуги</h2>
 <p class="section-subtitle">Полный спектр ремонтных работ любой сложности</p>
 <div class="services-grid">
-<div class="service-card">
-<div class="service-icon">&#128296;</div>
-<h3>Косметический ремонт</h3>
-<p>Обновление отделки: поклейка обоев, покраска стен и потолков, замена напольного покрытия.</p>
-<div class="service-price">от 2 500 руб/м²</div>
-</div>
-<div class="service-card">
-<div class="service-icon">&#127968;</div>
-<h3>Капитальный ремонт</h3>
-<p>Полная перепланировка, замена коммуникаций, электрика, сантехника, чистовая отделка.</p>
-<div class="service-price">от 5 000 руб/м²</div>
-</div>
-<div class="service-card">
-<div class="service-icon">&#9997;</div>
-<h3>Дизайн-проект</h3>
-<p>Разработка дизайн-проекта интерьера, 3D-визуализация, подбор материалов и мебели.</p>
-<div class="service-price">от 800 руб/м²</div>
-</div>
-<div class="service-card">
-<div class="service-icon">&#128684;</div>
-<h3>Ремонт в новостройке</h3>
-<p>Отделка квартир с нуля в новых домах: стяжка, штукатурка, все виды работ.</p>
-<div class="service-price">от 4 000 руб/м²</div>
-</div>
-<div class="service-card">
-<div class="service-icon">&#128701;</div>
-<h3>Санузел под ключ</h3>
-<p>Полный ремонт ванной и туалета: плитка, сантехника, гидроизоляция.</p>
-<div class="service-price">от 60 000 руб</div>
-</div>
-<div class="service-card">
-<div class="service-icon">&#9889;</div>
-<h3>Электромонтаж</h3>
-<p>Замена проводки, установка розеток, выключателей, щитков, освещение.</p>
-<div class="service-price">от 500 руб/точка</div>
-</div>
+<div class="service-card"><div class="service-icon">🔨</div><h3>Косметический ремонт</h3><p>Обновление отделки: поклейка обоев, покраска стен и потолков, замена напольного покрытия.</p><div class="service-price">от 2 500 руб/м²</div></div>
+<div class="service-card"><div class="service-icon">🏠</div><h3>Капитальный ремонт</h3><p>Полная перепланировка, замена коммуникаций, электрика, сантехника, чистовая отделка.</p><div class="service-price">от 5 000 руб/м²</div></div>
+<div class="service-card"><div class="service-icon">✍</div><h3>Дизайн-проект</h3><p>Разработка дизайн-проекта интерьера, 3D-визуализация, подбор материалов и мебели.</p><div class="service-price">от 800 руб/м²</div></div>
+<div class="service-card"><div class="service-icon">🏗</div><h3>Ремонт в новостройке</h3><p>Отделка квартир с нуля в новых домах: стяжка, штукатурка, все виды работ.</p><div class="service-price">от 4 000 руб/м²</div></div>
+<div class="service-card"><div class="service-icon">🚽</div><h3>Санузел под ключ</h3><p>Полный ремонт ванной и туалета: плитка, сантехника, гидроизоляция.</p><div class="service-price">от 60 000 руб</div></div>
+<div class="service-card"><div class="service-icon">⚡</div><h3>Электромонтаж</h3><p>Замена проводки, установка розеток, выключателей, щитков, освещение.</p><div class="service-price">от 500 руб/точка</div></div>
 </div>
 </section>
-
 <!-- WHY US -->
-<section id="why">
+<section>
 <h2 class="section-title">Почему выбирают нас</h2>
 <p class="section-subtitle">Мы работаем честно и открыто</p>
 <div class="why-grid">
-<div class="why-card">
-<div class="why-icon">&#128176;</div>
-<h3>Фиксированная цена</h3>
-<p>Смета фиксируется в договоре. Никаких скрытых доплат и навязанных услуг.</p>
-</div>
-<div class="why-card">
-<div class="why-icon">&#128197;</div>
-<h3>Точные сроки</h3>
-<p>Сроки прописываются в договоре. За каждый день просрочки — скидка клиенту.</p>
-</div>
-<div class="why-card">
-<div class="why-icon">&#128736;</div>
-<h3>Свои бригады</h3>
-<p>Опытные мастера в штате. Не передаём заказы субподрядчикам.</p>
-</div>
-<div class="why-card">
-<div class="why-icon">&#128220;</div>
-<h3>Договор и гарантия</h3>
-<p>Официальный договор, акты приёмки, гарантия 2 года на все виды работ.</p>
-</div>
+<div class="why-card"><div class="why-icon">💰</div><h3>Фиксированная цена</h3><p>Смета фиксируется в договоре. Никаких скрытых доплат и навязанных услуг.</p></div>
+<div class="why-card"><div class="why-icon">📅</div><h3>Точные сроки</h3><p>Сроки прописываются в договоре. За каждый день просрочки — скидка клиенту.</p></div>
+<div class="why-card"><div class="why-icon">🛠</div><h3>Свои бригады</h3><p>Опытные мастера в штате. Не передаём заказы субподрядчикам.</p></div>
+<div class="why-card"><div class="why-icon">📜</div><h3>Договор и гарантия</h3><p>Официальный договор, акты приёмки, гарантия 2 года на все виды работ.</p></div>
 </div>
 </section>
-
 <!-- PORTFOLIO -->
 <section class="portfolio" id="portfolio">
 <h2 class="section-title">Наши работы</h2>
 <p class="section-subtitle">Примеры завершённых объектов в Перми</p>
 <div class="portfolio-grid">
-<div class="portfolio-item">
-<div class="portfolio-img">&#127968;</div>
-<div class="portfolio-info">
-<h3>Капремонт 2-комн. Компрос, 50</h3>
-<p>65 м² • 45 дней • Капитальный ремонт</p>
-</div>
-</div>
-<div class="portfolio-item">
-<div class="portfolio-img">&#127961;</div>
-<div class="portfolio-info">
-<h3>Студия в ЖК Парковый</h3>
-<p>38 м² • 30 дней • Ремонт в новостройке</p>
-</div>
-</div>
-<div class="portfolio-item">
-<div class="portfolio-img">&#128705;</div>
-<div class="portfolio-info">
-<h3>Санузел под ключ, Попова 36</h3>
-<p>8 м² • 14 дней • Плитка, сантехника</p>
-</div>
-</div>
+<div class="portfolio-item"><div class="portfolio-img">🏠</div><div class="portfolio-info"><h3>Капремонт 2-комн. Компрос, 50</h3><p>65 м² • 45 дней • Капитальный ремонт</p></div></div>
+<div class="portfolio-item"><div class="portfolio-img">🏙</div><div class="portfolio-info"><h3>Студия в ЖК Парковый</h3><p>38 м² • 30 дней • Ремонт в новостройке</p></div></div>
+<div class="portfolio-item"><div class="portfolio-img">🛁</div><div class="portfolio-info"><h3>Санузел под ключ, Попова 36</h3><p>8 м² • 14 дней • Плитка, сантехника</p></div></div>
 </div>
 </section>
-
 <!-- PROCESS -->
 <section>
 <h2 class="section-title">Как мы работаем</h2>
 <p class="section-subtitle">От звонка до сдачи объекта — 4 простых шага</p>
 <div class="process-steps">
-<div class="step">
-<div class="step-num">1</div>
-<h3>Заявка</h3>
-<p>Звоните или оставляете заявку. Мы свяжемся за 15 минут.</p>
-</div>
-<div class="step">
-<div class="step-num">2</div>
-<h3>Замер и смета</h3>
-<p>Мастер приедет бесплатно, оценит объём и составит смету.</p>
-</div>
-<div class="step">
-<div class="step-num">3</div>
-<h3>Ремонт</h3>
-<p>Подписываем договор. Бригада выполняет работы точно в срок.</p>
-</div>
-<div class="step">
-<div class="step-num">4</div>
-<h3>Сдача</h3>
-<p>Приёмка работ, подписание акта, гарантийный талон на 2 года.</p>
-</div>
+<div class="step"><div class="step-num">1</div><h3>Заявка</h3><p>Звоните или оставляете заявку. Мы свяжемся за 15 минут.</p></div>
+<div class="step"><div class="step-num">2</div><h3>Замер и смета</h3><p>Мастер приедет бесплатно, оценит объём и составит смету.</p></div>
+<div class="step"><div class="step-num">3</div><h3>Ремонт</h3><p>Подписываем договор. Бригада выполняет работы точно в срок.</p></div>
+<div class="step"><div class="step-num">4</div><h3>Сдача</h3><p>Приёмка работ, подписание акта, гарантийный талон на 2 года.</p></div>
 </div>
 </section>
-
 <!-- REVIEWS -->
 <section class="reviews" id="reviews">
 <h2 class="section-title">Отзывы клиентов</h2>
 <p class="section-subtitle">Что говорят о нас заказчики</p>
 <div class="reviews-grid">
-<div class="review-card">
-<div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<p class="review-text">Делали капремонт двушки на Компросе. Ребята сделали всё чётко, в срок, без накруток. Рекомендую!</p>
-<div class="review-author">Алексей М.</div>
-<div class="review-date">февраль 2026</div>
+<div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Делали капремонт двушки на Компросе. Ребята сделали всё чётко, в срок, без накруток. Рекомендую!</p><div class="review-author">Алексей М.</div><div class="review-date">февраль 2026</div></div>
+<div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Заказывали ремонт санузла. Всё аккуратно, плитка легла идеально. Спасибо мастеру Сергею!</p><div class="review-author">Ольга К.</div><div class="review-date">январь 2026</div></div>
+<div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Отделка новостройки в ЖК Парковый. Сдали на 3 дня раньше срока. Качество отличное, цена адекватная.</p><div class="review-author">Дмитрий В.</div><div class="review-date">декабрь 2025</div></div>
 </div>
-<div class="review-card">
-<div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<p class="review-text">Заказывали ремонт санузла. Всё аккуратно, плитка легла идеально. Спасибо мастеру Сергею!</p>
-<div class="review-author">Ольга К.</div>
-<div class="review-date">январь 2026</div>
-</div>
-<div class="review-card">
-<div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<p class="review-text">Отделка новостройки в ЖК Парковый. Сдали на 3 дня раньше срока. Качество отличное, цена адекватная.</p>
-<div class="review-author">Дмитрий В.</div>
-<div class="review-date">декабрь 2025</div>
+</section>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<h2 class="section-title" style="color:var(--white)">Связаться с нами</h2>
+<p class="section-subtitle" style="color:#94a3b8">Оставьте заявку и мы перезвоним вам</p>
+<div class="contact-grid">
+<form class="contact-form" name="contact" method="POST" data-netlify="true">
+<input type="hidden" name="form-name" value="contact">
+<input type="text" name="name" placeholder="Ваше имя" required>
+<input type="tel" name="phone" placeholder="Телефон" required>
+<input type="email" name="email" placeholder="Email">
+<textarea name="message" placeholder="Сообщение"></textarea>
+<button type="submit">Отправить</button>
+</form>
+<div class="contact-info">
+<p>📍 <strong>Адрес</strong><br>г. Пермь, Пермский край</p>
+<p>📞 <strong>Телефон</strong><br><a href="tel:+79523309944">+7 (952) 330-99-44</a></p>
+<p>🕒 <strong>Режим работы</strong><br>Пн-Пт: 9:00-20:00, Сб: 10:00-18:00</p>
+<p>💬 <strong>Мессенджеры</strong><br><a href="https://t.me/VKProtarget1">Telegram</a> | <a href="https://vk.ru/club236479775">VK</a></p>
+<p>📧 <strong>Email</strong><br><a href="mailto:babushkinyury@yandex.ru">babushkinyury@yandex.ru</a></p>
 </div>
 </div>
 </section>
-
 <!-- CTA -->
-<section class="cta" id="contact">
+<section class="cta">
 <h2>Готовы начать ремонт?</h2>
 <p>Звоните прямо сейчас — бесплатный замер и смета в день обращения!</p>
 <a href="tel:+79523309944" class="cta-phone">+7 (952) 330-99-44</a>
 <a href="tel:+79523309944" class="btn btn-accent">Заказать звонок</a>
 </section>
-
 <!-- FOOTER -->
 <footer class="footer">
 <div class="footer-links">
@@ -319,9 +237,8 @@ section{padding:70px 20px}
 <a href="#reviews">Отзывы</a>
 <a href="#contact">Контакты</a>
 </div>
-<p>Ремонт квартир в Перми • г. Пермь, Пермский край<br>Тел: <a href="tel:+79523309944" style="color:var(--accent)">+7 (952) 330-99-44</a> | Email: <a href="mailto:babushkinyury@yandex.ru" style="color:var(--accent)">babushkinyury@yandex.ru</a><br><a href="https://vk.ru/club236479775" target="_blank" style="color:var(--accent)">Мы ВКонтакте</a> | Telegram: <a href="https://t.me/VKProtarget1" target="_blank" style="color:var(--accent)">@VKProtarget1</a></p>
-<p style="margin-top:10px">&copy; 2026 РемонтПермь. Все права защищены.</p>
+<p>Ремонт квартир в Перми • г. Пермь, Пермский край<br>Тел: <a href="tel:+79523309944">+7 (952) 330-99-44</a> | Email: <a href="mailto:babushkinyury@yandex.ru">babushkinyury@yandex.ru</a><br><a href="https://vk.ru/club236479775">Мы ВКонтакте</a> | Telegram: <a href="https://t.me/VKProtarget1">@VKProtarget1</a></p>
+<p>&copy; 2026 РемонтПермь. Все права защищены.</p>
 </footer>
-
 </body>
 </html>
