@@ -1,107 +1,73 @@
 # РемонтПермь - Apartment Renovation Landing Page
 
 ## Project Overview
-A fully responsive HTML landing page for a Russian apartment renovation company. Features dynamic service cards with modals, interactive portfolio section, and JSON-driven content management.
+A premium dark-themed landing page for a Russian apartment renovation company (РемонтПермь) in Perm, Russia. Features a full-screen hero, interactive quiz calculator, service/portfolio modals, scroll animations, and JSON-driven content.
 
 ## Tech Stack
-- Pure HTML/CSS/JavaScript (no frameworks, no build system)
-- Dynamic data loading from JSON files
-- Modal windows with smooth animations
-- Responsive grid layouts
-- Object-fit image optimization
+- Pure HTML/CSS/JavaScript (single file, no frameworks, no build system)
+- Dynamic data loading from JSON files via fetch()
+- IntersectionObserver-based scroll animations
+- CSS custom properties for theming
+- Responsive design with mobile hamburger menu
+
+## Color Scheme
+- Background: #0f0f1a (near-black), #1a1a2e (dark blue)
+- Accent: #f5a623 (gold), #ffd700 (light gold)
+- Cards: #1c1c30, #252540
+- Text: white (#fff), gray (#9ca3af, #d1d5db)
 
 ## File Structure
-- `index.html` - Main website with embedded CSS/JavaScript and modal systems
-- `services.json` - 6 services with pricing, descriptions, advantages, includes lists
-- `regional-config.json` - Regional pricing configuration and coefficients
-- `portfolio.json` - 3 portfolio projects with full descriptions
-- `images/` - Portfolio image assets (kapremont.jpg, novostroyka.jpg, sanuzel.jpg)
-- `.github/workflows/deploy.yml` - Netlify deployment workflow
+- `index.html` - Complete website (CSS + JS embedded)
+- `services.json` - 6 services with pricing, descriptions, advantages, includes
+- `regional-config.json` - Regional pricing configuration
+- `portfolio.json` - 3 portfolio projects with descriptions and image paths
+- `attached_assets/` - Portfolio collage images (used in modals)
+- `images/` - Additional image assets
 
-## Features
-
-### Services Section
-- ✅ 6 services dynamically loaded from `services.json`
-- ✅ Interactive modal with full details on click
-- ✅ Advantages list (3-5 items each)
-- ✅ What's included list (5-8 items each)
-- ✅ Pricing and regional validity dates
-- ✅ "Order calculation" CTA button
-
-### Portfolio Section
-- ✅ 3 completed projects with text-only cards
-- ✅ Cards show: title, area, duration, work type
-- ✅ "View Work" button opens detailed modal
-- ✅ Full-size collage images (object-fit: contain) in modal
-- ✅ Detailed project descriptions
-- ✅ Project details in info grid (area, duration, type)
-- ✅ Smooth modal animations with fade-in/slide-up
-
-### Both Sections
-- ✅ Beautiful modal overlays with dark backgrounds
-- ✅ Close buttons (X) and click-outside closing
-- ✅ Smooth animations and transitions
-- ✅ Fully responsive design
-- ✅ All content in JSON files (easy updates)
+## Sections (in order)
+1. **Sticky Header** - Dark, logo left, nav center, phone right, hamburger on mobile
+2. **Hero** - Full-screen, subtitle, headline, 3 features with icons, CTA buttons, stats
+3. **Quiz Calculator** - 5-step interactive form (object type, area, repair type, timing, contact)
+4. **Principles** - 4 cards (01-04) with gold number overlays
+5. **Services** - Grid of 6 cards from services.json, modals with full details
+6. **Portfolio** - Grid of 3 text cards from portfolio.json, modals with full collage images
+7. **Work Stages** - 6-step vertical timeline
+8. **Measure Form** - Name/phone form with dynamic counter (5/3/2 based on time of day)
+9. **Reviews** - 3 review cards with gold stars
+10. **Contacts** - Phone, email, social links, Yandex Maps iframe
+11. **Footer** - Social icons, nav links, copyright
 
 ## JSON Data Structure
 
 ### services.json
 6 services, each with:
-- `id`, `title`, `shortDescription`, `fullDescription` (3-5 sentences)
+- `id`, `title`, `shortDescription`, `fullDescription`
 - `priceFrom`, `priceUnit`, `region`, `isActual`, `lastUpdate`
 - `advantages` (3-5 items), `includes` (5-8 items)
-
-### regional-config.json
-- Base rates for each service type
-- Coefficients: outOfCity (1.2), urgent (1.3), complexity (1.15)
-- Currency, working hours, warranty info
 
 ### portfolio.json
 3 projects, each with:
 - `id`, `title`, `area`, `duration`, `type`
-- `image` (unused), `imageUrl` (full collage path)
+- `imageUrl` (path to collage in attached_assets/)
 - `description` (detailed project write-up)
+
+## Contact Info
+- Phone: +7 (952) 330-99-44
+- Email: babushkinyury@yandex.ru
+- Telegram: https://t.me/VKProtarget1
+- VK: https://vk.ru/club236479775
 
 ## Running Locally
 ```bash
 python3 -m http.server 5000 --bind 0.0.0.0
 ```
-Then open http://localhost:5000 or use Replit preview.
-
-## Recent Changes
-- Created `portfolio.json` with 3 detailed projects
-- Redesigned portfolio section with text-only cards
-- Added portfolio modal system with full collage images
-- All portfolio images display at full resolution (object-fit: contain)
-- Professional descriptions for each completed project
-- Both sections use JSON for easy content updates
 
 ## Deployment
 Configured as static site with `publicDir: "."`.
 
-## How Users Interact
-
-### Services
-1. User scrolls to "Наши услуги" section
-2. Sees 6 service cards with icons and short descriptions
-3. Clicks card or "Подробнее" button
-4. Modal opens with full description, advantages, includes, pricing
-5. Clicks "Заказать расчёт" to contact form
-
-### Portfolio
-1. User scrolls to "Наши работы" section
-2. Sees 3 text cards with project info and "Смотреть работу" button
-3. Clicks button
-4. Modal opens with full collage image and detailed project description
-5. Can close modal with X or by clicking outside
-
-## Files to Push to GitHub
-- `index.html` (completely redesigned modal systems)
-- `services.json` (all service data)
-- `regional-config.json` (pricing config)
-- `portfolio.json` (portfolio projects)
-- `replit.md` (documentation)
-- `images/` folder with portfolio images
-
-Total: 5 files + 1 directory changed/added
+## Key Implementation Details
+- Quiz submits via JS alert (no backend integration yet)
+- Measure counter: shows 5 before noon, 3 afternoon, 2 evening
+- Service/portfolio modals close on X button or overlay click
+- Scroll animations use single shared IntersectionObserver
+- All content updates can be made via JSON files without touching HTML
