@@ -583,6 +583,8 @@ const name=nameEl?nameEl.value:'';
 if(!phone){alert('Пожалуйста, укажите телефон');return}
 quizAnswers.name=name;
 quizAnswers.phone=phone;
+const now=new Date().toLocaleString('ru-RU',{timeZone:'Asia/Yekaterinburg'});
+sendToTelegram('📊 <b>Заявка из квиза!</b>\n🏠 Тип: '+quizAnswers.type+'\n📏 Площадь: '+quizAnswers.area+'\n🔨 Ремонт: '+quizAnswers.repair+'\n⏰ Сроки: '+quizAnswers.timing+'\n👤 Имя: '+quizAnswers.name+'\n📱 Телефон: '+quizAnswers.phone+'\n🕒 '+now);
 const body=new URLSearchParams({
 'form-name':'quiz',
 'quiz-type':quizAnswers.type,
@@ -600,12 +602,23 @@ fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlenco
 document.getElementById('measureForm').addEventListener('submit',function(e){
 e.preventDefault();
 const fd=new FormData(this);
+const mName=fd.get('name')||'';
+const mPhone=fd.get('phone')||'';
+const now=new Date().toLocaleString('ru-RU',{timeZone:'Asia/Yekaterinburg'});
+sendToTelegram('🔔 <b>Новая заявка на замер!</b>\n👤 Имя: '+mName+'\n📱 Телефон: '+mPhone+'\n🕒 '+now);
 const body=new URLSearchParams(fd).toString();
 const section=this.closest('.measure-section');
 fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body})
 .then(r=>{if(r.ok)showSuccess(section,'Мастер свяжется с вами в ближайшее время для согласования замера!');else showError(section)})
 .catch(()=>{showError(section)});
 });
+
+function sendToTelegram(message){
+fetch('https://api.telegram.org/bot8661754812:AAGwIFWUh4r4TqbSav5-MS9E5obydYzOH5A/sendMessage',{
+method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({chat_id:7692089613,text:message,parse_mode:'HTML'})
+}).catch(()=>{});
+}
 
 function showSuccess(container,msg){
 container.innerHTML='<div class="form-success"><span class="form-success-icon">✓</span><div class="form-success-title">Заявка отправлена!</div><p class="form-success-text">'+msg+'</p></div>';
