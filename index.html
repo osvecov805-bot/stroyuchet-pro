@@ -205,9 +205,23 @@ body{padding-top:65px}
 .measure-section{padding:30px 20px}
 .modal-content{padding:25px}
 }
+.form-success{text-align:center;padding:40px 20px;animation:fadeIn .6s}
+.form-success-icon{font-size:3em;margin-bottom:15px;display:block}
+.form-success-title{font-size:1.4em;font-weight:800;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+.form-success-text{color:var(--gray-light);font-size:.95em;line-height:1.6}
 </style>
 </head>
 <body>
+<form name="quiz" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+<input type="hidden" name="form-name" value="quiz">
+<input name="bot-field">
+<input name="quiz-type">
+<input name="quiz-area">
+<input name="quiz-repair">
+<input name="quiz-timing">
+<input name="quiz-name">
+<input name="quiz-phone">
+</form>
 
 <header class="header">
 <div class="container">
@@ -371,7 +385,9 @@ body{padding-top:65px}
 <div class="measure-section fade-in">
 <h2>Бесплатно сделаем <span style="color:var(--gold)">замер</span> и рассчитаем смету</h2>
 <p class="sub">Оставьте заявку и мастер приедет в удобное для вас время</p>
-<form class="measure-form" onsubmit="event.preventDefault();alert('Спасибо! Мы перезвоним вам в ближайшее время.')">
+<form class="measure-form" id="measureForm" name="measure" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="measure">
+<p hidden><label>Don't fill: <input name="bot-field"></label></p>
 <input type="text" name="name" placeholder="Ваше имя" required>
 <input type="tel" name="phone" placeholder="Телефон" required>
 <button type="submit" class="btn-gold" style="width:100%;margin-top:5px">Пригласить на замер</button>
@@ -541,6 +557,8 @@ m.addEventListener('click',function(e){if(e.target===this)closeModal(this.id)});
 });
 
 let quizStep=1;
+const quizAnswers={type:'',area:'',repair:'',timing:'',name:'',phone:''};
+const quizKeys=['','type','area','repair','timing'];
 function initQuiz(){
 const prog=document.getElementById('quizProgress');
 prog.innerHTML='';
@@ -549,6 +567,7 @@ for(let i=1;i<=5;i++){const d=document.createElement('div');d.className='quiz-pr
 function selectOption(el,step){
 el.parentElement.querySelectorAll('.quiz-option').forEach(o=>o.classList.remove('selected'));
 el.classList.add('selected');
+if(quizKeys[step])quizAnswers[quizKeys[step]]=el.textContent.trim();
 }
 function nextStep(n){
 document.querySelector(`.quiz-step[data-step="${quizStep}"]`).classList.remove('active');
@@ -559,8 +578,40 @@ initQuiz();
 function prevStep(n){nextStep(n)}
 function submitQuiz(){
 const phone=document.getElementById('quizPhone').value;
+const nameEl=document.querySelector('.quiz-step[data-step="5"] .quiz-input[placeholder="Ваше имя"]');
+const name=nameEl?nameEl.value:'';
 if(!phone){alert('Пожалуйста, укажите телефон');return}
-alert('Спасибо! Мы рассчитаем стоимость и перезвоним вам в ближайшее время.');
+quizAnswers.name=name;
+quizAnswers.phone=phone;
+const body=new URLSearchParams({
+'form-name':'quiz',
+'quiz-type':quizAnswers.type,
+'quiz-area':quizAnswers.area,
+'quiz-repair':quizAnswers.repair,
+'quiz-timing':quizAnswers.timing,
+'quiz-name':quizAnswers.name,
+'quiz-phone':quizAnswers.phone
+});
+fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()})
+.then(r=>{if(r.ok)showSuccess(document.querySelector('.quiz-section'),'Мы рассчитаем стоимость и перезвоним вам в ближайшее время!');else showError(document.querySelector('.quiz-section'))})
+.catch(()=>{showError(document.querySelector('.quiz-section'))});
+}
+
+document.getElementById('measureForm').addEventListener('submit',function(e){
+e.preventDefault();
+const fd=new FormData(this);
+const body=new URLSearchParams(fd).toString();
+const section=this.closest('.measure-section');
+fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body})
+.then(r=>{if(r.ok)showSuccess(section,'Мастер свяжется с вами в ближайшее время для согласования замера!');else showError(section)})
+.catch(()=>{showError(section)});
+});
+
+function showSuccess(container,msg){
+container.innerHTML='<div class="form-success"><span class="form-success-icon">✓</span><div class="form-success-title">Заявка отправлена!</div><p class="form-success-text">'+msg+'</p></div>';
+}
+function showError(container){
+container.innerHTML='<div class="form-success"><span class="form-success-icon" style="color:#ef4444">✕</span><div class="form-success-title" style="background:linear-gradient(135deg,#ef4444,#f87171);-webkit-background-clip:text;background-clip:text">Ошибка отправки</div><p class="form-success-text">Пожалуйста, позвоните нам: <a href="tel:+79523309944" style="color:var(--gold)">+7 (952) 330-99-44</a></p></div>';
 }
 
 function closeMobile(){

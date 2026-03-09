@@ -66,7 +66,11 @@ python3 -m http.server 5000 --bind 0.0.0.0
 Configured as static site with `publicDir: "."`.
 
 ## Key Implementation Details
-- Quiz submits via JS alert (no backend integration yet)
+- Both forms (quiz + measure) connected to Netlify Forms via fetch POST
+- Quiz tracks selected answers in `quizAnswers` object across all 5 steps
+- Hidden quiz form in HTML for Netlify form detection (name="quiz")
+- Measure form: name="measure" with honeypot spam protection
+- Success messages: gold gradient text with checkmark icon and fade-in animation
 - Measure counter: shows 5 before noon, 3 afternoon, 2 evening
 - Service/portfolio modals close on X button or overlay click
 - Scroll animations use single shared IntersectionObserver
