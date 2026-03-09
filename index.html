@@ -71,9 +71,7 @@ section{padding:70px 20px}
 .portfolio{background:var(--light)}
 .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1100px;margin:0 auto}
 .portfolio-item{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 2px 15px rgba(0,0,0,.06)}
-.portfolio-img{height:200px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:3em}
-.portfolio-item:nth-child(2) .portfolio-img{background:linear-gradient(135deg,#f093fb,#f5576c)}
-.portfolio-item:nth-child(3) .portfolio-img{background:linear-gradient(135deg,#4facfe,#00f2fe)}
+.portfolio-img{height:220px;width:100%;object-fit:cover;display:block}
 .portfolio-info{padding:20px}
 .portfolio-info h3{margin-bottom:5px;color:var(--dark)}
 .portfolio-info p{color:var(--gray);font-size:.9em}
@@ -202,9 +200,9 @@ body{padding-top:60px}
 <h2 class="section-title">Наши работы</h2>
 <p class="section-subtitle">Примеры завершённых объектов в Перми</p>
 <div class="portfolio-grid">
-<div class="portfolio-item"><div class="portfolio-img">🏠</div><div class="portfolio-info"><h3>Капремонт 2-комн. Компрос, 50</h3><p>65 м² • 45 дней • Капитальный ремонт</p></div></div>
-<div class="portfolio-item"><div class="portfolio-img">🏙</div><div class="portfolio-info"><h3>Студия в ЖК Парковый</h3><p>38 м² • 30 дней • Ремонт в новостройке</p></div></div>
-<div class="portfolio-item"><div class="portfolio-img">🛁</div><div class="portfolio-info"><h3>Санузел под ключ, Попова 36</h3><p>8 м² • 14 дней • Плитка, сантехника</p></div></div>
+<div class="portfolio-item"><img class="portfolio-img" src="images/kapremont.jpg" alt="Капремонт 2-комн. Компрос, 50"><div class="portfolio-info"><h3>Капремонт 2-комн. Компрос, 50</h3><p>65 м² • 45 дней • Капитальный ремонт</p></div></div>
+<div class="portfolio-item"><img class="portfolio-img" src="images/novostroyka.jpg" alt="Студия в ЖК Парковый"><div class="portfolio-info"><h3>Студия в ЖК Парковый</h3><p>38 м² • 30 дней • Ремонт в новостройке</p></div></div>
+<div class="portfolio-item"><img class="portfolio-img" src="images/sanuzel.jpg" alt="Санузел под ключ, Попова 36"><div class="portfolio-info"><h3>Санузел под ключ, Попова 36</h3><p>8 м² • 14 дней • Плитка, сантехника</p></div></div>
 </div>
 </section>
 <section>
