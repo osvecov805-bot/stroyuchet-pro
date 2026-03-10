@@ -53,7 +53,7 @@ A premium dark-themed landing page for a Russian apartment renovation company (Ð
 
 ## Contact Info
 - Phone: +7 (952) 330-99-44
-- Email: babushkinyury@yandex.ru
+- Email: remont.perm.159@yandex.ru
 - Telegram: https://t.me/VKProtarget1
 - VK: https://vk.ru/club236479775
 
