@@ -117,7 +117,7 @@ section{padding:80px 20px}
 .portfolio-item h3{font-size:1.1em;font-weight:700;margin-bottom:15px;text-transform:uppercase}
 .portfolio-details{display:flex;flex-wrap:wrap;gap:15px;margin-bottom:20px}
 .portfolio-detail{background:rgba(245,166,35,.1);padding:6px 14px;border-radius:6px;font-size:.85em;color:var(--gold)}
-.portfolio-view-btn{margin-top:auto;padding:12px 20px;background:transparent;border:1px solid var(--gold);color:var(--gold);border-radius:8px;cursor:pointer;transition:.3s;font-size:.9em;text-transform:uppercase;letter-spacing:.5px;width:100%;text-align:center;font-weight:600}
+.portfolio-view-btn{margin-top:auto;padding:12px 20px;background:transparent;border:1px solid var(--gold);touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);cursor:pointer;position:relative;z-index:10;color:var(--gold);border-radius:8px;cursor:pointer;transition:.3s;font-size:.9em;text-transform:uppercase;letter-spacing:.5px;width:100%;text-align:center;font-weight:600}
 .portfolio-view-btn:hover{background:var(--gold);color:var(--bg)}
 
 .timeline{max-width:900px;margin:0 auto;position:relative}
@@ -220,7 +220,7 @@ body{padding-top:65px}
 .timeline-num{width:40px;min-width:40px;height:40px;font-size:1em}
 .quiz-section{padding:30px 20px}
 .measure-section{padding:30px 20px}
-.modal-content{padding:25px} .services-grid,.portfolio-grid{grid-template-columns:1fr!important;display:grid!important} .service-card,.portfolio-item{display:flex!important;flex-direction:column!important;opacity:1!important;transform:none!important} .timeline-step{flex-wrap:nowrap;overflow:hidden} html,body{overflow-x:hidden;width:100%} .hero{overflow:hidden} .hero::before,.hero::after{display:none}
+.modal-content{padding:25px;max-width:100%!important;width:100%!important;max-height:95vh!important;border-radius:12px!important}.modal-overlay.active{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;z-index:9999!important;display:flex!important;align-items:center!important;justify-content:center!important;-webkit-overflow-scrolling:touch}.portfolio-modal .modal-content{max-width:100%!important}.portfolio-modal-image{max-height:300px!important} .services-grid,.portfolio-grid{grid-template-columns:1fr!important;display:grid!important} .service-card,.portfolio-item{display:flex!important;flex-direction:column!important;opacity:1!important;transform:none!important} .timeline-step{flex-wrap:nowrap;overflow:hidden} html,body{overflow-x:hidden;width:100%} .hero{overflow:hidden} .hero::before,.hero::after{display:none}
 }
 .form-success{text-align:center;padding:40px 20px;animation:fadeIn .6s}
 .form-success-icon{font-size:3em;margin-bottom:15px;display:block}
@@ -565,7 +565,7 @@ grid.innerHTML='';
 portfolio.forEach((p,i)=>{
 const card=document.createElement('div');
 card.className='portfolio-item';
-card.innerHTML=`<h3>${p.title}</h3><div class="portfolio-details"><div class="portfolio-detail">${p.area}</div><div class="portfolio-detail">${p.duration}</div><div class="portfolio-detail">${p.type}</div></div><button class="portfolio-view-btn" onclick="openPortfolioModal(${i})">Смотреть работу</button>`;
+card.innerHTML=`<h3>${p.title}</h3><div class="portfolio-details"><div class="portfolio-detail">${p.area}</div><div class="portfolio-detail">${p.duration}</div><div class="portfolio-detail">${p.type}</div></div><button class="portfolio-view-btn" data-idx="${i}">Смотреть работу</button>`;
 grid.appendChild(card);
 });
 initScrollAnimations();
@@ -698,7 +698,7 @@ document.querySelectorAll('.fade-in:not(.visible)').forEach(el=>scrollObserver.o
 const hour=new Date().getHours();
 document.getElementById('measureCount').textContent=(hour<12?'5':hour<16?'3':'2');
 
-init();
+document.addEventListener('click',function(e){var btn=e.target.closest('.portfolio-view-btn');if(btn){e.preventDefault();e.stopPropagation();var idx=btn.getAttribute('data-idx');if(idx!==null)openPortfolioModal(parseInt(idx));}});document.addEventListener('touchend',function(e){var btn=e.target.closest('.portfolio-view-btn');if(btn){e.preventDefault();var idx=btn.getAttribute('data-idx');if(idx!==null)openPortfolioModal(parseInt(idx));}});init();
 </script>
 </body>
 </html>
