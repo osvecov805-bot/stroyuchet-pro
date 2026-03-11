@@ -551,7 +551,7 @@ const grid=document.getElementById('services-grid');
 grid.innerHTML='';
 services.forEach((s,i)=>{
 const card=document.createElement('div');
-card.className='service-card fade-in';
+card.className='service-card';
 card.innerHTML=`<div class="service-icon">${icons[i]||'🔧'}</div><h3>${s.title}</h3><p>${s.shortDescription}</p><div class="service-price">от ${s.priceFrom.toLocaleString('ru-RU')} ${s.priceUnit}</div><button class="btn-sm" onclick="openServiceModal(${i})">Получить смету бесплатно</button>`;
 card.addEventListener('click',function(e){if(e.target.tagName!=='BUTTON')openServiceModal(i)});
 grid.appendChild(card);
@@ -564,7 +564,7 @@ const grid=document.getElementById('portfolio-grid');
 grid.innerHTML='';
 portfolio.forEach((p,i)=>{
 const card=document.createElement('div');
-card.className='portfolio-item fade-in';
+card.className='portfolio-item';
 card.innerHTML=`<h3>${p.title}</h3><div class="portfolio-details"><div class="portfolio-detail">${p.area}</div><div class="portfolio-detail">${p.duration}</div><div class="portfolio-detail">${p.type}</div></div><button class="portfolio-view-btn" onclick="openPortfolioModal(${i})">Смотреть работу</button>`;
 grid.appendChild(card);
 });
