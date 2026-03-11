@@ -536,7 +536,7 @@ const icons=['🔨','🏠','✍','🏗','🚽','⚡'];
 
 async function init(){
 try{
-const[sRes,pRes]=await Promise.all([fetch('services.json'),fetch('portfolio.json')]);
+const[sRes,pRes]=await Promise.all([fetch('https://remontotdelka159.ru/services.json'),fetch('https://remontotdelka159.ru/portfolio.json')]);
 services=await sRes.json();
 portfolio=await pRes.json();
 renderServices();
