@@ -698,7 +698,7 @@ document.querySelectorAll('.fade-in:not(.visible)').forEach(el=>scrollObserver.o
 const hour=new Date().getHours();
 document.getElementById('measureCount').textContent=(hour<12?'5':hour<16?'3':'2');
 
-function handleMobileClick(e){var btn=e.target.closest('.portfolio-view-btn');if(btn){e.preventDefault();e.stopPropagation();var idx=btn.getAttribute('data-idx');if(idx!==null)openPortfolioModal(parseInt(idx));return;}var sBtn=e.target.closest('.service-card .btn-sm');if(sBtn){e.preventDefault();e.stopPropagation();var card=sBtn.closest('.service-card');var cards=document.querySelectorAll('.service-card');for(var i=0;i<cards.length;i++){if(cards[i]===card){openServiceModal(i);return;}}return;}var sCard=e.target.closest('.service-card');if(sCard){e.preventDefault();var cards2=document.querySelectorAll('.service-card');for(var j=0;j<cards2.length;j++){if(cards2[j]===sCard){openServiceModal(j);return;}}}}document.addEventListener('click',handleMobileClick);document.addEventListener('touchend',function(e){handleMobileClick(e);});init();
+init();
 </script>
 </body>
 </html>
