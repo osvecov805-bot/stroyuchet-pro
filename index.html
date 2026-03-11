@@ -47,7 +47,7 @@ section{padding:80px 20px}
 .mobile-menu a{color:var(--gray-light);font-size:1.1em;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);text-transform:uppercase;letter-spacing:1px}
 .mobile-menu a:hover{color:var(--gold)}
 
-.hero{min-height:90vh;display:flex;align-items:center;background:linear-gradient(135deg,rgba(15,15,26,.92),rgba(26,26,46,.88)),url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><defs><radialGradient id="a"><stop offset="0" stop-color="%23f5a623" stop-opacity=".03"/><stop offset="1" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="200" fill="url(%23a)"/></svg>');padding:60px 20px;position:relative;overflow:visible}
+.hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(160deg,rgba(15,15,26,.95) 0%,rgba(22,33,62,.9) 50%,rgba(15,15,26,.95) 100%),url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><defs><radialGradient id="a"><stop offset="0" stop-color="%23f5a623" stop-opacity=".03"/><stop offset="1" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="200" fill="url(%23a)"/></svg>');padding:60px 20px;position:relative;overflow:visible}
 .hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(245,166,35,.06) 0%,transparent 70%);border-radius:50%}
 .hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(245,166,35,.04) 0%,transparent 70%);border-radius:50%}
 .hero-content{position:relative;z-index:1;max-width:800px}
@@ -60,7 +60,7 @@ section{padding:80px 20px}
 .hero-feature-icon{width:45px;height:45px;min-width:45px;background:rgba(245,166,35,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3em;color:var(--gold)}
 .hero-feature-text{font-size:.9em;color:var(--gray-light);line-height:1.4}
 .hero-feature-text strong{color:var(--white);display:block;margin-bottom:2px}
-.btn-gold{display:inline-block;padding:16px 40px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);font-size:1.05em;font-weight:700;border-radius:8px;border:none;cursor:pointer;transition:.3s;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 20px rgba(245,166,35,.3)}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}.btn-gradient-primary{display:inline-block;padding:16px 40px;background:linear-gradient(135deg,#2ecc71,#1abc9c,#27ae60,#16a085);background-size:300% 300%;animation:gradientShift 4s ease infinite;color:#fff;font-size:1.05em;font-weight:700;border-radius:50px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 15px rgba(46,204,113,.3);text-decoration:none;text-align:center}.btn-gradient-primary:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(46,204,113,.45)}.btn-gradient-soft{display:inline-block;padding:14px 35px;background:linear-gradient(135deg,#a8e6cf,#88d8b0,#6dc5a1,#55b98d);background-size:300% 300%;animation:gradientShift 6s ease infinite;color:#1a1a2e;font-size:1em;font-weight:600;border-radius:50px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s;text-transform:uppercase;letter-spacing:1px;box-shadow:0 3px 12px rgba(136,216,176,.25);text-decoration:none;text-align:center}.btn-gradient-soft:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(136,216,176,.4)}.btn-secondary{display:inline-block;padding:14px 35px;background:transparent;color:var(--gold);font-size:1em;font-weight:600;border-radius:50px;border:2px solid var(--gold);cursor:pointer;transition:all .3s;text-transform:uppercase;letter-spacing:1px;text-decoration:none;text-align:center}.btn-secondary:hover{background:rgba(46,204,113,.1);border-color:var(--gold-light);transform:translateY(-2px)}@media(max-width:768px){.btn-gradient-primary,.btn-gradient-soft,.btn-secondary{padding:14px 28px;font-size:.95em;width:100%;min-width:auto}}.btn-gold{display:inline-block;padding:16px 40px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);font-size:1.05em;font-weight:700;border-radius:50px;border:none;cursor:pointer;transition:.3s;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 20px rgba(245,166,35,.3)}
 .btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(245,166,35,.5)}
 .btn-outline{display:inline-block;padding:14px 35px;background:transparent;color:var(--gold);font-size:1em;font-weight:600;border-radius:8px;border:2px solid var(--gold);cursor:pointer;transition:.3s;text-transform:uppercase;letter-spacing:1px}
 .btn-outline:hover{background:var(--gold);color:var(--bg)}
@@ -268,25 +268,25 @@ body{padding-top:65px}
 
 <section class="hero">
 <div class="hero-content">
-<div class="hero-subtitle">Квартиры, новостройки, санузлы — любая сложность</div>
-<h1>Ремонт квартир в Перми <span>с договором, фиксированной ценой</span> и оплатой по факту</h1>
+<div class="hero-subtitle">Смета за 1 день • Поэтапная оплата • Гарантия 2 года по договору</div>
+<h1>Премиальный ремонт квартир в Перми <span>под ключ</span></h1>
 <div class="hero-features">
 <div class="hero-feature">
 <div class="hero-feature-icon">📐</div>
-<div class="hero-feature-text"><strong>Выезд бесплатно</strong>Мастер приедет бесплатно, смета — на следующий день</div>
+<div class="hero-feature-text"><strong>Более 50 объектов</strong>Завершённых проектов в Перми и крае</div>
 </div>
 <div class="hero-feature">
 <div class="hero-feature-icon">📋</div>
-<div class="hero-feature-text"><strong>Договор и гарантия</strong>Цена, сроки, гарантия 2 года — всё в документе</div>
+<div class="hero-feature-text"><strong>Работаем по договору</strong>Гарантия до 2 лет, фиксированная цена</div>
 </div>
 <div class="hero-feature">
 <div class="hero-feature-icon">💰</div>
-<div class="hero-feature-text"><strong>Средняя стоимость</strong>от 2 500 руб. за м²</div>
+<div class="hero-feature-text"><strong>Смета за 1 день</strong>Бесплатный выезд и расчёт</div>
 </div>
 </div>
 <div class="hero-btns">
-<a href="#measure" class="btn-gold">Записаться на Бесплатный выезд специалиста</a>
-<a href="#quiz" class="btn-outline">Узнать стоимость за 2 минуты</a>
+<a href="#measure" class="btn-gradient-primary">Рассчитать стоимость ремонта</a>
+<a href="#quiz" class="btn-secondary">Посмотреть примеры работ</a>
 </div>
 <div class="hero-stats">
 <div class="hero-stat"><div class="num">500+</div><div class="label">Объектов сдано</div></div>
@@ -347,7 +347,7 @@ body{padding-top:65px}
 <input type="text" class="quiz-input" placeholder="Ваше имя">
 <input type="tel" class="quiz-input" placeholder="Телефон" id="quizPhone">
 <div class="quiz-gift">🎁 Оставьте заявку сейчас и получите скидку 10% на материалы!</div>
-<div class="quiz-nav"><button class="btn-outline" onclick="prevStep(4)">Назад</button><button class="btn-gold" onclick="submitQuiz()">Получить расчёт</button></div>
+<div class="quiz-nav"><button class="btn-outline" onclick="prevStep(4)">Назад</button><button class="btn-gold" onclick="submitQuiz()">Получить смету за 1 день</button></div>
 </div>
 </div>
 </div>
@@ -407,7 +407,7 @@ body{padding-top:65px}
 <p hidden><label>Don't fill: <input name="bot-field"></label></p>
 <input type="text" name="name" placeholder="Ваше имя" required>
 <input type="tel" name="phone" placeholder="Телефон" required>
-<button type="submit" class="btn-gold" style="width:100%;margin-top:5px">Пригласить на замер</button>
+<button type="submit" class="btn-gold" style="width:100%;margin-top:5px">Вызвать замерщика бесплатно</button>
 </form>
 <div class="measure-counter">
 Осталось <span id="measureCount">3</span> бесплатных замера на сегодня
