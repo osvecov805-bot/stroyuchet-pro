@@ -102,7 +102,7 @@ section{padding:80px 20px}
 .principle-card p{color:var(--gray);font-size:.9em;position:relative}
 
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;max-width:1200px;margin:0 auto}
-.service-card{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:30px 25px;transition:.3s;cursor:pointer;display:flex;flex-direction:column}
+.service-card{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:30px 25px;transition:.3s;cursor:pointer;display:flex;flex-direction:column;touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);position:relative;z-index:1}
 .service-card:hover{border-color:var(--gold);box-shadow:0 0 30px rgba(245,166,35,.1);transform:translateY(-3px)}
 .service-icon{font-size:2.2em;margin-bottom:15px}
 .service-card h3{font-size:1.2em;font-weight:700;margin-bottom:10px;text-transform:uppercase}
@@ -112,7 +112,7 @@ section{padding:80px 20px}
 .service-card .btn-sm:hover{background:var(--gold);color:var(--bg)}
 
 .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;max-width:1200px;margin:0 auto}
-.portfolio-item{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:30px 25px;transition:.3s;display:flex;flex-direction:column}
+.portfolio-item{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:30px 25px;transition:.3s;display:flex;flex-direction:column;touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0)}
 .portfolio-item:hover{border-color:rgba(245,166,35,.3);transform:translateY(-3px)}
 .portfolio-item h3{font-size:1.1em;font-weight:700;margin-bottom:15px;text-transform:uppercase}
 .portfolio-details{display:flex;flex-wrap:wrap;gap:15px;margin-bottom:20px}
@@ -698,7 +698,7 @@ document.querySelectorAll('.fade-in:not(.visible)').forEach(el=>scrollObserver.o
 const hour=new Date().getHours();
 document.getElementById('measureCount').textContent=(hour<12?'5':hour<16?'3':'2');
 
-document.addEventListener('click',function(e){var btn=e.target.closest('.portfolio-view-btn');if(btn){e.preventDefault();e.stopPropagation();var idx=btn.getAttribute('data-idx');if(idx!==null)openPortfolioModal(parseInt(idx));}});document.addEventListener('touchend',function(e){var btn=e.target.closest('.portfolio-view-btn');if(btn){e.preventDefault();var idx=btn.getAttribute('data-idx');if(idx!==null)openPortfolioModal(parseInt(idx));}});init();
+function handleMobileClick(e){var btn=e.target.closest('.portfolio-view-btn');if(btn){e.preventDefault();e.stopPropagation();var idx=btn.getAttribute('data-idx');if(idx!==null)openPortfolioModal(parseInt(idx));return;}var sBtn=e.target.closest('.service-card .btn-sm');if(sBtn){e.preventDefault();e.stopPropagation();var card=sBtn.closest('.service-card');var cards=document.querySelectorAll('.service-card');for(var i=0;i<cards.length;i++){if(cards[i]===card){openServiceModal(i);return;}}return;}var sCard=e.target.closest('.service-card');if(sCard){e.preventDefault();var cards2=document.querySelectorAll('.service-card');for(var j=0;j<cards2.length;j++){if(cards2[j]===sCard){openServiceModal(j);return;}}}}document.addEventListener('click',handleMobileClick);document.addEventListener('touchend',function(e){handleMobileClick(e);});init();
 </script>
 </body>
 </html>
