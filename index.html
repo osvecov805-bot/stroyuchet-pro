@@ -832,5 +832,80 @@ setTimeout(function(){
   }
 })();
 </script>
+      
+<!-- MOBILE FIX V2: Replace buttons with <a> tags for iOS compatibility -->
+<script>
+(function(){
+  function fixMobileButtons(){
+    // Wait for services/portfolio to render
+    var checkInterval = setInterval(function(){
+      var serviceCards = document.querySelectorAll('.service-card');
+      var portfolioItems = document.querySelectorAll('.portfolio-item');
+      
+      if(serviceCards.length > 0 || portfolioItems.length > 0){
+        clearInterval(checkInterval);
+        
+        // Fix service buttons: replace <button> with <a>
+        serviceCards.forEach(function(card, i){
+          var btn = card.querySelector('.btn-sm, button');
+          if(btn && btn.tagName === 'BUTTON'){
+            var a = document.createElement('a');
+            a.href = 'javascript:void(0)';
+            a.className = btn.className;
+            a.textContent = btn.textContent;
+            a.style.cssText = 'display:block;text-align:center;padding:10px 20px;cursor:pointer;-webkit-tap-highlight-color:rgba(46,204,113,.3);touch-action:manipulation;';
+            a.addEventListener('click', function(e){
+              e.preventDefault();
+              e.stopPropagation();
+              if(typeof openServiceModal === 'function' && services.length > 0){
+                openServiceModal(i);
+              } else {
+                var m = document.getElementById('measure');
+                if(m) m.scrollIntoView({behavior:'smooth'});
+              }
+            });
+            btn.parentNode.replaceChild(a, btn);
+          }
+        });
+        
+        // Fix portfolio buttons: replace <button> with <a>
+        portfolioItems.forEach(function(item, i){
+          var btn = item.querySelector('.portfolio-view-btn, button');
+          if(btn && btn.tagName === 'BUTTON'){
+            var a = document.createElement('a');
+            a.href = 'javascript:void(0)';
+            a.className = btn.className;
+            a.textContent = btn.textContent;
+            a.setAttribute('data-idx', i);
+            a.style.cssText = 'display:block;text-align:center;padding:12px 20px;cursor:pointer;-webkit-tap-highlight-color:rgba(46,204,113,.3);touch-action:manipulation;';
+            a.addEventListener('click', function(e){
+              e.preventDefault();
+              e.stopPropagation();
+              if(typeof openPortfolioModal === 'function' && portfolio.length > 0){
+                openPortfolioModal(i);
+              } else {
+                var m = document.getElementById('measure');
+                if(m) m.scrollIntoView({behavior:'smooth'});
+              }
+            });
+            btn.parentNode.replaceChild(a, btn);
+          }
+        });
+        
+        console.log('Mobile fix V2: replaced ' + serviceCards.length + ' service buttons and ' + portfolioItems.length + ' portfolio buttons');
+      }
+    }, 500);
+    
+    // Safety timeout - stop checking after 10 seconds
+    setTimeout(function(){ clearInterval(checkInterval); }, 10000);
+  }
+  
+  if(document.readyState === 'complete'){
+    fixMobileButtons();
+  } else {
+    window.addEventListener('load', fixMobileButtons);
+  }
+})();
+</script>
 </body>
 </html>
