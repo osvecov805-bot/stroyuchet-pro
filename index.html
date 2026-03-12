@@ -573,7 +573,7 @@ initScrollAnimations();
 }
 
 function openServiceModal(idx){
-const s=services[idx];if(!s)return;
+const s=services[idx];if(!s){document.getElementById('measure').scrollIntoView({behavior:'smooth'});return};
 document.getElementById('modalTitle').textContent=s.title;
 document.getElementById('modalDescription').textContent=s.fullDescription;
 document.getElementById('modalPrice').textContent='Цена от '+s.priceFrom.toLocaleString('ru-RU')+' '+s.priceUnit;
@@ -586,7 +586,7 @@ openModal('serviceModal');
 }
 
 function openPortfolioModal(idx){
-const p=portfolio[idx];if(!p)return;
+const p=portfolio[idx];if(!p){document.getElementById('measure').scrollIntoView({behavior:'smooth'});return};
 document.getElementById('portfolioModalTitle').textContent=p.title;
 var gallery=p.gallery||[p.imageUrl];
 var imgContainer=document.getElementById('portfolioModalImageContainer');
