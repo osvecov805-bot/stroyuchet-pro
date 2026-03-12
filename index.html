@@ -505,7 +505,7 @@ body{padding-top:65px}
 <div class="modal-overlay portfolio-modal" id="portfolioModal">
 <div class="modal-content">
 <button class="modal-close" onclick="closeModal('portfolioModal')">✕</button>
-<img id="portfolioModalImage" class="portfolio-modal-image" alt="">
+      <div id="portfolioModalImageContainer"><img id="portfolioModalImage" class="portfolio-modal-image" alt=""></div>
 <div class="portfolio-modal-info">
 <h3 class="modal-title" id="portfolioModalTitle"></h3>
 <div class="portfolio-modal-details" id="portfolioModalDetails"></div>
@@ -566,7 +566,7 @@ grid.innerHTML='';
 portfolio.forEach((p,i)=>{
 const card=document.createElement('div');
 card.className='portfolio-item';
-card.innerHTML=`<img src="${p.image}" alt="${p.title}" style="width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:15px"><h3>${p.title}</h3><div class="portfolio-details"><div class="portfolio-detail">${p.area}</div><div class="portfolio-detail">${p.duration}</div><div class="portfolio-detail">${p.type}</div></div><button class="portfolio-view-btn" data-idx="${i}" onclick="openPortfolioModal(${i})">Смотреть работу</button>`;
+card.innerHTML=`<h3>${p.title}</h3><div class="portfolio-details"><div class="portfolio-detail">${p.area}</div><div class="portfolio-detail">${p.duration}</div><div class="portfolio-detail">${p.type}</div></div><button class="portfolio-view-btn" data-idx="${i}" onclick="openPortfolioModal(${i})">Смотреть работу</button>`;
 grid.appendChild(card);
 });
 initScrollAnimations();
@@ -588,8 +588,21 @@ openModal('serviceModal');
 function openPortfolioModal(idx){
 const p=portfolio[idx];if(!p)return;
 document.getElementById('portfolioModalTitle').textContent=p.title;
-document.getElementById('portfolioModalImage').src=p.imageUrl;
+var gallery=p.gallery||[p.imageUrl];
+var imgContainer=document.getElementById('portfolioModalImageContainer');
+if(imgContainer){
+imgContainer.innerHTML='';
+gallery.forEach(function(url){
+var img=document.createElement('img');
+img.src=url;
+img.alt=p.title;
+img.className='portfolio-modal-image';
+imgContainer.appendChild(img);
+});
+} else {
+document.getElementById('portfolioModalImage').src=gallery[0];
 document.getElementById('portfolioModalImage').alt=p.title;
+}
 document.getElementById('portfolioModalDescription').textContent=p.description;
 document.getElementById('portfolioModalDetails').innerHTML=
 `<div class="portfolio-modal-detail">${p.area}</div><div class="portfolio-modal-detail">${p.duration}</div><div class="portfolio-modal-detail">${p.type}</div>`;
