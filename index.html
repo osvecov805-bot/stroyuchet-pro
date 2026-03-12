@@ -85,9 +85,9 @@ section{padding:80px 20px}
 .quiz-step.active{display:block}
 .quiz-question{font-size:1.4em;font-weight:700;margin-bottom:25px}
 .quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px}
-.quiz-option{padding:15px 20px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.15);border-radius:50px;cursor:pointer;transition:all .3s;text-align:center;font-size:.95em;color:#fff}padding:15px 20px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.1);border-radius:10px;cursor:pointer;transition:.3s;text-align:center;font-size:.95em}
+.quiz-option{padding:15px 20px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.15);border-radius:50px;cursor:pointer;transition:all .3s;text-align:center;font-size:.95em;color:#fff}
 .quiz-option:hover{border-color:var(--gold);background:rgba(245,166,35,.1)}
-.quiz-option.selected{border-color:var(--gold)!important;background:rgba(46,204,113,.25)!important;color:#fff!important;box-shadow:0 0 20px rgba(46,204,113,.4),inset 0 0 20px rgba(46,204,113,.1)!important;transform:scale(1.03);border:2px solid var(--gold)!important}border-color:var(--gold);background:rgba(245,166,35,.15);color:var(--gold)}
+.quiz-option.selected{border-color:var(--gold)!important;background:rgba(46,204,113,.25)!important;color:#fff!important;box-shadow:0 0 20px rgba(46,204,113,.4),inset 0 0 20px rgba(46,204,113,.1)!important;transform:scale(1.03);border:2px solid var(--gold)!important}
 .quiz-input{width:100%;padding:14px 18px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.1);border-radius:10px;color:var(--white);font-size:1em;font-family:inherit;margin-bottom:15px}
 .quiz-input:focus{outline:none;border-color:var(--gold)}
 .quiz-input::placeholder{color:var(--gray)}
@@ -196,7 +196,7 @@ section{padding:80px 20px}
 button,.btn-gold,.btn-outline,.btn-sm,.btn-gradient-primary,.btn-gradient-soft,.btn-secondary,.service-card .btn-sm,.portfolio-view-btn,.modal-actions .btn-gold,.modal-actions .btn-outline,button[type="submit"],[class*="btn-"]{border-radius:50px!important;background-image:linear-gradient(90deg,#1ee87a,#0ddb6a,#2ecc71,#ff8ac9,#ff1e7a,#1ee87a)!important;background-color:transparent!important;background-size:600% 100%!important;background-position:0% 50%;animation:gradientShift 5s linear infinite!important;color:#fff!important;border:none!important;box-shadow:0 0 16px rgba(0,255,150,.55),0 0 26px rgba(255,61,160,.7)!important;transition:transform .3s,box-shadow .3s!important}button:hover,.btn-gold:hover,.btn-outline:hover,.btn-sm:hover,.btn-gradient-primary:hover,.btn-gradient-soft:hover,.btn-secondary:hover,.portfolio-view-btn:hover,button[type="submit"]:hover,[class*="btn-"]:hover{transform:translateY(-3px) scale(1.02)!important;box-shadow:0 0 22px rgba(0,255,150,.85),0 0 36px rgba(255,61,160,.9)!important}.btn-secondary{border-radius:50px!important;background-image:linear-gradient(90deg,#1ee87a,#0ddb6a,#2ecc71,#ff8ac9,#ff1e7a,#1ee87a)!important;background-color:transparent!important;background-size:600% 100%!important;background-position:0% 50%;animation:gradientShift 5s linear infinite!important;border:2px solid rgba(46,204,113,.5)!important;color:#fff!important}.btn-secondary:hover{border-color:rgba(108,99,255,.7)!important;transform:translateY(-3px)!important}@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
 
-.fade-in{opacity:1;transform:none;transition:opacity .6s,transform .6s}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
 @media(max-width:900px){
@@ -362,7 +362,7 @@ body{padding-top:65px}
 <div class="principle-card fade-in"><div class="principle-num">01</div><h3>Вы не платите вперёд</h3><p>Никаких авансов. Ремонт разбит на этапы: черновой, чистовой, финальный. Вы платите только после приёмки каждого этапа.</p></div>
 <div class="principle-card fade-in"><div class="principle-num">02</div><h3>Цена зафиксирована в договоре</h3><p>Смета расписана по позициям: от мешка штукатурки до установки розетки. Сумма фиксируется в договоре и не меняется.</p></div>
 <div class="principle-card fade-in"><div class="principle-num">03</div><h3>Своя бригада, а не случайные люди</h3><p>Постоянные мастера со стажем от 5 лет, которых мы знаем лично. На каждом объекте — отдельный прораб, который отвечает за сроки и качество.</p></div>
-<div class="principle-card fade-in"><div class="principle-num">04</div><h3>Ежедневная связь и фотоотчёты</h3><p>Честная смета без скрытых доплат. Средняя стоимость от 2 500 руб/м². Договор и гарантия по факту выполненных работ.</p></div>
+<div class="principle-card fade-in"><div class="principle-num">04</div><h3>Ежедневная связь и фотоотчёты</h3><p>Каждый день присылаем фото с объекта в мессенджер. Прораб на связи с 9 до 20. Вы всегда знаете, что происходит на вашей квартире.</p></div>
 </div>
 </div>
 </section>
@@ -533,7 +533,7 @@ body{padding-top:65px}
 
 <script>
 let services=[],portfolio=[];
-const icons=['🔨','🏠','✍','🏗','🚽','⚡'];
+const icons=['🔨','🏠','✍','🏗','🚿','⚡'];
 
 async function init(){
 try{
