@@ -102,7 +102,7 @@ section{padding:80px 20px}
 .principle-card p{color:var(--gray);font-size:.9em;position:relative}
 
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;max-width:1200px;margin:0 auto}
-.service-card{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:30px 25px;transition:.3s;cursor:pointer;display:flex;flex-direction:column;touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);position:relative;z-index:1}
+.service-card{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:30px 25px;transition:.3s;display:flex;flex-direction:column;touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);position:relative;z-index:1}
 .service-card:hover{border-color:var(--gold);box-shadow:0 0 30px rgba(245,166,35,.1);transform:translateY(-3px)}
 .service-icon{font-size:2.2em;margin-bottom:15px}
 .service-card h3{font-size:1.2em;font-weight:700;margin-bottom:10px;text-transform:uppercase}
@@ -554,7 +554,7 @@ services.forEach((s,i)=>{
 const card=document.createElement('div');
 card.className='service-card';
 card.innerHTML=`<div class="service-icon">${icons[i]||'🔧'}</div><h3>${s.title}</h3><p>${s.shortDescription}</p><div class="service-price">от ${s.priceFrom.toLocaleString('ru-RU')} ${s.priceUnit}</div><button class="btn-sm" onclick="openServiceModal(${i})">Получить смету бесплатно</button>`;
-card.addEventListener('click',function(e){if(e.target.tagName!=='BUTTON')openServiceModal(i)});
+
 grid.appendChild(card);
 });
 initScrollAnimations();
@@ -699,7 +699,7 @@ document.querySelectorAll('.fade-in:not(.visible)').forEach(el=>scrollObserver.o
 const hour=new Date().getHours();
 document.getElementById('measureCount').textContent=(hour<12?'5':hour<16?'3':'2');
 
-document.addEventListener('touchend',function(e){var b=e.target.closest('.portfolio-view-btn');if(b){e.preventDefault();var i=b.getAttribute('data-idx');if(i!==null)openPortfolioModal(parseInt(i));return;}var s=e.target.closest('.service-card .btn-sm');if(s){e.preventDefault();var c=s.closest('.service-card');var cs=document.querySelectorAll('.service-card');for(var j=0;j<cs.length;j++){if(cs[j]===c){openServiceModal(j);return;}}return;}var sc=e.target.closest('.service-card');if(sc){e.preventDefault();var cs2=document.querySelectorAll('.service-card');for(var k=0;k<cs2.length;k++){if(cs2[k]===sc){openServiceModal(k);return;}}}},{passive:false}); init();
+document.addEventListener('touchend',function(e){var b=e.target.closest('.portfolio-view-btn');if(b){e.preventDefault();var i=b.getAttribute('data-idx');if(i!==null)openPortfolioModal(parseInt(i));return;}var s=e.target.closest('.service-card .btn-sm');if(s){e.preventDefault();var c=s.closest('.service-card');var cs=document.querySelectorAll('.service-card');for(var j=0;j<cs.length;j++){if(cs[j]===c){openServiceModal(j);return;}}return;}},{passive:false}); init();
 </script>
 </body>
 </html>
