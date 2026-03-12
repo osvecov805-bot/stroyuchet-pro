@@ -712,7 +712,7 @@ document.querySelectorAll('.fade-in:not(.visible)').forEach(el=>scrollObserver.o
 const hour=new Date().getHours();
 document.getElementById('measureCount').textContent=(hour<12?'5':hour<16?'3':'2');
 
-document.addEventListener('touchend',function(e){var b=e.target.closest('.portfolio-view-btn');if(b){e.preventDefault();var i=b.getAttribute('data-idx');if(i!==null)openPortfolioModal(parseInt(i));return;}var s=e.target.closest('.service-card .btn-sm');if(s){e.preventDefault();var c=s.closest('.service-card');var cs=document.querySelectorAll('.service-card');for(var j=0;j<cs.length;j++){if(cs[j]===c){openServiceModal(j);return;}}return;}},{passive:false}); init();
+document.addEventListener('click',function(e){var b=e.target.closest('.portfolio-view-btn');if(b){e.preventDefault();var i=b.getAttribute('data-idx');if(i!==null)openPortfolioModal(parseInt(i));return;}var s=e.target.closest('.service-card .btn-sm');if(s){e.preventDefault();var c=s.closest('.service-card');var cs=document.querySelectorAll('.service-card');for(var j=0;j<cs.length;j++){if(cs[j]===c){openServiceModal(j);return;}}return;}}); init();
 
       // Fallback: add click handlers to static buttons if JSON didn't load
 setTimeout(function(){
