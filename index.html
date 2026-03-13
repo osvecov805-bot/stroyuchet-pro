@@ -650,7 +650,7 @@ quizAnswers.name=name;
 quizAnswers.phone=phone;
 const now=new Date().toLocaleString('ru-RU',{timeZone:'Asia/Yekaterinburg'});
 sendToTelegram('📊 <b>Заявка из квиза!</b>\n🏠 Тип: '+quizAnswers.type+'\n📏 Площадь: '+quizAnswers.area+'\n🔨 Ремонт: '+quizAnswers.repair+'\n⏰ Сроки: '+quizAnswers.timing+'\n👤 Имя: '+quizAnswers.name+'\n📱 Телефон: '+quizAnswers.phone+'\n🕒 '+now);
-showSuccess(document.querySelector('.quiz-section'),'Мы рассчитаем стоимость и перезвоним вам в ближайшее время!');
+sendToEmail('Kviz-remontotdelka159','Tip: '+quizAnswers.type+', Ploshad: '+quizAnswers.area+', Remont: '+quizAnswers.repair+', Sroki: '+quizAnswers.timing+', Imya: '+quizAnswers.name+', Telefon: '+quizAnswers.phone); showSuccess(document.querySelector('.quiz-section'),'Мы рассчитаем стоимость и перезвоним вам в ближайшее время!');
 }
 
 document.getElementById('measureForm').addEventListener('submit',function(e){
@@ -660,7 +660,7 @@ const mName=fd.get('name')||'';
 const mPhone=fd.get('phone')||'';
 const now=new Date().toLocaleString('ru-RU',{timeZone:'Asia/Yekaterinburg'});
 sendToTelegram('🔔 <b>Новая заявка на замер!</b>\n👤 Имя: '+mName+'\n📱 Телефон: '+mPhone+'\n🕒 '+now);
-const section=this.closest('.measure-section');     showSuccess(section,'Мастер свяжется с вами в ближайшее время для согласования замера!');
+const section=this.closest('.measure-section');     sendToEmail('Zamer-remontotdelka159','Imya: '+mName+', Telefon: '+mPhone); showSuccess(section,'Мастер свяжется с вами в ближайшее время для согласования замера!');
 });
 
 function sendToTelegram(message){
