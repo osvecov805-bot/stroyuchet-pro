@@ -670,7 +670,7 @@ body:JSON.stringify({chat_id:7692089613,text:message,parse_mode:'HTML'})
 }).catch(()=>{});
 }
 
-function showSuccess(container,msg){
+function sendToEmail(s,b){fetch('https://formsubmit.co/ajax/remont.perm.159@yandex.ru',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:s,message:b})}).catch(function(){});} function showSuccess(container,msg){
 container.innerHTML='<div class="form-success"><span class="form-success-icon">✓</span><div class="form-success-title">Заявка отправлена!</div><p class="form-success-text">'+msg+'</p></div>';
 }
 function showError(container){
