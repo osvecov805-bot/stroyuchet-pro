@@ -650,18 +650,7 @@ quizAnswers.name=name;
 quizAnswers.phone=phone;
 const now=new Date().toLocaleString('ru-RU',{timeZone:'Asia/Yekaterinburg'});
 sendToTelegram('📊 <b>Заявка из квиза!</b>\n🏠 Тип: '+quizAnswers.type+'\n📏 Площадь: '+quizAnswers.area+'\n🔨 Ремонт: '+quizAnswers.repair+'\n⏰ Сроки: '+quizAnswers.timing+'\n👤 Имя: '+quizAnswers.name+'\n📱 Телефон: '+quizAnswers.phone+'\n🕒 '+now);
-const body=new URLSearchParams({
-'form-name':'quiz',
-'quiz-type':quizAnswers.type,
-'quiz-area':quizAnswers.area,
-'quiz-repair':quizAnswers.repair,
-'quiz-timing':quizAnswers.timing,
-'quiz-name':quizAnswers.name,
-'quiz-phone':quizAnswers.phone
-});
-fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()})
-.then(r=>{if(r.ok)showSuccess(document.querySelector('.quiz-section'),'Мы рассчитаем стоимость и перезвоним вам в ближайшее время!');else showError(document.querySelector('.quiz-section'))})
-.catch(()=>{showError(document.querySelector('.quiz-section'))});
+showSuccess(document.querySelector('.quiz-section'),'Мы рассчитаем стоимость и перезвоним вам в ближайшее время!');
 }
 
 document.getElementById('measureForm').addEventListener('submit',function(e){
@@ -671,11 +660,7 @@ const mName=fd.get('name')||'';
 const mPhone=fd.get('phone')||'';
 const now=new Date().toLocaleString('ru-RU',{timeZone:'Asia/Yekaterinburg'});
 sendToTelegram('🔔 <b>Новая заявка на замер!</b>\n👤 Имя: '+mName+'\n📱 Телефон: '+mPhone+'\n🕒 '+now);
-const body=new URLSearchParams(fd).toString();
-const section=this.closest('.measure-section');
-fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body})
-.then(r=>{if(r.ok)showSuccess(section,'Мастер свяжется с вами в ближайшее время для согласования замера!');else showError(section)})
-.catch(()=>{showError(section)});
+const section=this.closest('.measure-section');     showSuccess(section,'Мастер свяжется с вами в ближайшее время для согласования замера!');
 });
 
 function sendToTelegram(message){
